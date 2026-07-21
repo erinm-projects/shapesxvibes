@@ -60,7 +60,7 @@ body {
 
   align-items: start;
 
-  gap: 40px;
+  gap: -40px;
 
   /*
     The lower grid begins immediately after the taller
