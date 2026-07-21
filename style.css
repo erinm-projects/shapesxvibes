@@ -172,7 +172,7 @@ body {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 
   width: min(900px, 100%);
-  margin: 0;
+  margin: -120px 0 0;;
 
   column-gap: 22px;
   row-gap: 85px;
@@ -216,6 +216,14 @@ body {
 .story-grid .story-point--9 {
   grid-column: 5 / 7;
   grid-row: 2;
+
+  width: 205px;
+  max-width: 205px;
+
+  justify-self: end;
+
+  transform: translateX(145px);
+}
 
   transform: translateX(75px);
 }
