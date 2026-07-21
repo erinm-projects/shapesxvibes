@@ -1,1 +1,471 @@
+/* =========================================================
+   STORY SECTION
+========================================================= */
 
+.story-section {
+  --story-dark: #1e1e1e;
+  --story-cream: #f6f3ed;
+  --story-lime: #d1ff71;
+  --story-teal: #069093;
+  --story-purple: #9192ff;
+
+  position: relative;
+  overflow: hidden;
+  padding: 110px 24px 140px;
+  background: var(--story-cream);
+  color: var(--story-dark);
+}
+
+.story-container {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.story-intro {
+  width: min(780px, 100%);
+  margin-bottom: 100px;
+}
+
+.story-eyebrow {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.story-intro h2 {
+  max-width: 750px;
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 6.5rem);
+  font-weight: 900;
+  letter-spacing: -0.065em;
+  line-height: 0.94;
+}
+
+.story-description {
+  max-width: 720px;
+  margin: 32px 0 0;
+  font-size: clamp(1rem, 1.35vw, 1.3rem);
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   SNAKE LAYOUT
+========================================================= */
+
+.story-snake {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 115px;
+}
+
+.story-row {
+  position: relative;
+  display: grid;
+  gap: clamp(28px, 3.5vw, 60px);
+}
+
+/* Four across */
+
+.story-row--forward {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Three across */
+
+.story-row--reverse {
+  width: 76%;
+  align-self: flex-end;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  direction: rtl;
+}
+
+.story-row--reverse>* {
+  direction: ltr;
+}
+
+
+/* =========================================================
+   HORIZONTAL CONNECTING LINE
+========================================================= */
+
+.story-row::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 81px;
+  left: 7%;
+  right: 7%;
+
+  height: 8px;
+
+  border: 2px solid var(--story-dark);
+  border-radius: 999px;
+
+  background: var(--story-lime);
+}
+
+
+/* =========================================================
+   CURVES BETWEEN ROWS
+========================================================= */
+
+.story-row:not(:last-child)::after {
+  content: "";
+  position: absolute;
+
+  z-index: 0;
+
+  top: 81px;
+
+  width: clamp(75px, 8vw, 125px);
+  height: 220px;
+
+  pointer-events: none;
+}
+
+
+/* Left -> Right */
+
+.story-row--forward:not(:last-child)::after {
+
+  right: calc(clamp(75px, 8vw, 125px) * -0.55);
+
+  border-top: 8px solid var(--story-lime);
+  border-right: 8px solid var(--story-lime);
+  border-bottom: 8px solid var(--story-lime);
+
+  border-left: none;
+
+  border-radius: 0 140px 140px 0;
+
+  box-shadow:
+    2px 0 0 var(--story-dark),
+    0 -2px 0 var(--story-dark),
+    0 2px 0 var(--story-dark);
+}
+
+
+/* Right -> Left */
+
+.story-row--reverse:not(:last-child)::after {
+
+  left: calc(clamp(75px, 8vw, 125px) * -0.55);
+
+  border-top: 8px solid var(--story-lime);
+  border-bottom: 8px solid var(--story-lime);
+  border-left: 8px solid var(--story-lime);
+
+  border-right: none;
+
+  border-radius: 140px 0 0 140px;
+
+  box-shadow:
+    -2px 0 0 var(--story-dark),
+    0 -2px 0 var(--story-dark),
+    0 2px 0 var(--story-dark);
+}
+
+/* =========================================================
+   INDIVIDUAL STORY POINT
+========================================================= */
+
+.story-point {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  text-align: center;
+}
+
+
+/* =========================================================
+   CIRCULAR IMAGE
+========================================================= */
+
+.story-image {
+  position: relative;
+  width: clamp(125px, 13vw, 170px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  overflow: hidden;
+
+  border: 12px solid var(--story-lime);
+  border-radius: 50%;
+
+  outline: 3px solid var(--story-dark);
+  outline-offset: 0;
+
+  background: var(--story-lime);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   IMAGE HOVER EFFECT
+========================================================= */
+
+.story-point:hover .story-image {
+  transform: translateY(-7px) rotate(-2deg);
+  box-shadow: 10px 10px 0 var(--story-dark);
+}
+
+
+/* =========================================================
+   STORY CARDS
+========================================================= */
+
+.story-card {
+  position: relative;
+
+  min-height: 230px;
+  margin-top: 30px;
+  padding: 34px 25px 28px;
+
+  border: 3px solid var(--story-dark);
+
+  background: #ffffff;
+  text-align: left;
+
+  box-shadow: 8px 8px 0 var(--story-dark);
+}
+
+
+/* Connector from circle to card */
+
+.story-card::before {
+  content: "";
+  position: absolute;
+
+  bottom: 100%;
+  left: 50%;
+
+  width: 4px;
+  height: 32px;
+
+  background: var(--story-dark);
+
+  transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   STORY NUMBER
+========================================================= */
+
+.story-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 46px;
+  min-height: 30px;
+
+  margin-bottom: 22px;
+  padding: 5px 11px;
+
+  border: 2px solid var(--story-dark);
+  border-radius: 999px;
+
+  background: var(--story-lime);
+
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   CARD TYPOGRAPHY
+========================================================= */
+
+.story-card h3 {
+  margin: 0 0 14px;
+
+  font-size: clamp(1.15rem, 1.5vw, 1.5rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.story-card p {
+  margin: 0;
+
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   OPTIONAL CARD ROTATION
+========================================================= */
+
+.story-point:nth-child(even) .story-card {
+  transform: rotate(1deg);
+}
+
+.story-point:nth-child(odd) .story-card {
+  transform: rotate(-0.5deg);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .story-section {
+    padding-top: 90px;
+  }
+
+  .story-row--forward,
+  .story-row--reverse {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    direction: ltr;
+  }
+
+  .story-row {
+    gap: 70px 35px;
+  }
+
+  .story-row::before,
+  .story-row::after {
+    display: none;
+  }
+
+  .story-snake {
+    gap: 70px;
+  }
+
+  .story-card {
+    min-height: 210px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE VERTICAL STORY
+========================================================= */
+
+@media (max-width: 650px) {
+  .story-section {
+    padding: 75px 20px 90px;
+  }
+
+  .story-intro {
+    margin-bottom: 65px;
+  }
+
+  .story-intro h2 {
+    font-size: clamp(2.7rem, 14vw, 4.4rem);
+  }
+
+  .story-description {
+    margin-top: 25px;
+  }
+
+  .story-snake {
+    display: block;
+  }
+
+  .story-row,
+  .story-row--forward,
+  .story-row--reverse {
+    display: contents;
+    width: 100%;
+  }
+
+  .story-point {
+    display: grid;
+    grid-template-columns: 86px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 42px;
+    text-align: left;
+  }
+
+  /* Vertical line through the circles */
+
+  .story-point::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    top: 78px;
+    bottom: -48px;
+    left: 41px;
+
+    width: 8px;
+
+    border: 2px solid var(--story-dark);
+    background: var(--story-lime);
+  }
+
+  .story-row:last-child .story-point:last-child::after {
+    display: none;
+  }
+
+  .story-image {
+    width: 82px;
+    margin: 0;
+
+    border-width: 7px;
+    outline-width: 2px;
+  }
+
+  .story-card {
+    min-height: 0;
+    margin: 0;
+    padding: 25px 20px 23px;
+
+    box-shadow: 6px 6px 0 var(--story-dark);
+    transform: none !important;
+  }
+
+  .story-card::before {
+    top: 38px;
+    right: 100%;
+    bottom: auto;
+    left: auto;
+
+    width: 22px;
+    height: 4px;
+
+    transform: none;
+  }
+
+  .story-number {
+    min-width: 42px;
+    margin-bottom: 17px;
+  }
+
+  .story-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .story-point:hover .story-image {
+    transform: none;
+    box-shadow: none;
+  }
+}
