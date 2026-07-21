@@ -111,57 +111,32 @@ body {
 
 
 /* =========================================================
-   OPENING CARDS 1–3
-
-          1
-
-     2
-
-          3
+   TOP FEATURE IMAGE
 ========================================================= */
 
-.story-opening {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 205px));
+.story-feature-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 
-  /* Three separate rows prevent the opening cards from overlapping */
-  grid-template-rows: repeat(3, 225px);
-
-  justify-content: start;
-  align-items: start;
-
-  margin-left: -70px;
-
-  column-gap: 30px;
-  row-gap: 25px;
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
 }
 
-.story-opening .story-point--1 {
-  grid-column: 1;
-  grid-row: 1;
+.story-feature-image img {
+  display: block;
 
-   justify-self: end;
+  width: min(100%, 420px);
+  height: 620px;
 
-  margin-top: 35px;
-}
-
-.story-opening .story-point--2 {
-  grid-column: 2;
-  grid-row: 2;
-
-  justify-self: start;
-}
-
-.story-opening .story-point--3 {
-  grid-column: 1;
-  grid-row: 3;
-
-  justify-self: end;
+  object-fit: contain;
+  object-position: center top;
 }
 
 
 /* =========================================================
-   LOWER STORY GRID
+   STAGGERED STORY GRID
 ========================================================= */
 
 .story-grid {
@@ -172,79 +147,108 @@ body {
   align-items: start;
 
   width: 100%;
-  margin-top: -310px;
+  margin: 0;
 
   column-gap: 28px;
   row-gap: 85px;
 }
 
 
-/* Row 1: 6, 5, 4 */
+/* Row 1: 1, 2, 3 — shifted right */
+
+.story-grid .story-point--1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.story-grid .story-point--2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.story-grid .story-point--3 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+
+/* Row 2: 6, 5, 4 — aligned left */
 
 .story-grid .story-point--6 {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .story-grid .story-point--5 {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 .story-grid .story-point--4 {
   grid-column: 3;
-  grid-row: 1;
+  grid-row: 2;
 }
 
 
-/* Row 2: 7, 8, 9
-   Shifted slightly right */
+/* Row 3: 7, 8, 9 — shifted right */
 
 .story-grid .story-point--7 {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 .story-grid .story-point--8 {
   grid-column: 3;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 .story-grid .story-point--9 {
   grid-column: 4;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 
-/* Row 3: 12, 11, 10 */
+/* Row 4: 12, 11, 10 — aligned left */
 
 .story-grid .story-point--12 {
   grid-column: 1;
-  grid-row: 3;
+  grid-row: 4;
 }
 
 .story-grid .story-point--11 {
   grid-column: 2;
-  grid-row: 3;
+  grid-row: 4;
 }
 
 .story-grid .story-point--10 {
   grid-column: 3;
-  grid-row: 3;
+  grid-row: 4;
 }
 
 
-/* Row 4: 13, 14
-   Shifted slightly right */
+/* Row 5: 13, 14 — shifted right */
 
 .story-grid .story-point--13 {
   grid-column: 2;
-  grid-row: 4;
+  grid-row: 5;
 }
 
 .story-grid .story-point--14 {
   grid-column: 3;
-  grid-row: 4;
+  grid-row: 5;
+}
+
+
+/* Keep all cards equal */
+
+.story-grid .story-point {
+  width: 205px;
+  max-width: 205px;
+
+  margin: 0;
+  transform: none;
+
+  justify-self: start;
 }
 
 
@@ -441,103 +445,65 @@ body {
   color: var(--story-cream);
 }
 
-.story-line {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-  z-index: 0;
-}
-
-.story-line path {
-  fill: none;
-  stroke: var(--story-lime);
-  stroke-width: 12;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  filter:
-    drop-shadow(2px 0 0 #1e1e1e)
-    drop-shadow(-2px 0 0 #1e1e1e)
-    drop-shadow(0 2px 0 #1e1e1e)
-    drop-shadow(0 -2px 0 #1e1e1e);
-}
-
-
-
 /* =========================================================
    TABLET + SMALL DESKTOP
 ========================================================= */
 
-@media (max-width: 1050px) {
-
+@media (max-width: 1180px) {
   .story-section {
     padding: 70px 24px 110px;
   }
 
   .story-top {
-    display: block;
-    margin-bottom: 90px;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.6fr);
+    gap: 40px;
   }
 
-  .story-intro {
-    width: 100%;
-    max-width: 720px;
-    margin-bottom: 80px;
+  .story-feature-image {
+    min-height: 500px;
   }
 
-  .story-opening,
+  .story-feature-image img {
+    width: min(100%, 320px);
+    height: 500px;
+  }
+
   .story-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(205px, 205px));
+    grid-template-columns: repeat(3, 205px);
 
     justify-content: center;
 
     width: 100%;
-
-    margin: 0;
-
     column-gap: clamp(18px, 4vw, 45px);
     row-gap: 80px;
   }
 
-  .story-opening .story-point,
   .story-grid .story-point,
-
-  .story-point--1,
-  .story-point--2,
-  .story-point--3,
-  .story-point--4,
-  .story-point--5,
-  .story-point--6,
-  .story-point--7,
-  .story-point--8,
-  .story-point--9,
-  .story-point--10,
-  .story-point--11,
-  .story-point--12,
-  .story-point--13,
-  .story-point--14 {
-
-    grid-column: auto !important;
-    grid-row: auto !important;
+  .story-grid .story-point--1,
+  .story-grid .story-point--2,
+  .story-grid .story-point--3,
+  .story-grid .story-point--4,
+  .story-grid .story-point--5,
+  .story-grid .story-point--6,
+  .story-grid .story-point--7,
+  .story-grid .story-point--8,
+  .story-grid .story-point--9,
+  .story-grid .story-point--10,
+  .story-grid .story-point--11,
+  .story-grid .story-point--12,
+  .story-grid .story-point--13,
+  .story-grid .story-point--14 {
+    grid-column: auto;
+    grid-row: auto;
 
     width: 205px;
     max-width: 205px;
 
     margin: 0;
     transform: none;
-    left: auto;
 
     justify-self: center;
   }
-
 }
 
 
@@ -546,84 +512,72 @@ body {
 ========================================================= */
 
 @media (max-width: 520px) {
-
   .story-section {
-    padding: 60px 18px 90px;
+    padding: 52px 18px 80px;
+  }
+
+  .story-top {
+    display: block;
+    margin-bottom: 85px;
   }
 
   .story-intro {
-    margin-bottom: 70px;
+    margin-bottom: 45px;
   }
 
   .story-intro h2 {
-    font-size: clamp(2.8rem, 15vw, 4.3rem);
+    font-size: clamp(2.8rem, 15vw, 4.1rem);
   }
 
-  .story-description {
-    font-size: 1rem;
-    line-height: 1.55;
+  .story-feature-image {
+    min-height: 0;
   }
 
-  .story-opening,
+  .story-feature-image img {
+    width: min(100%, 280px);
+    height: 430px;
+  }
+
   .story-grid {
-
     display: grid;
-
     grid-template-columns: minmax(0, 320px);
 
     justify-content: center;
 
     width: 100%;
-
-    row-gap: 75px;
+    row-gap: 76px;
   }
 
-  .story-opening .story-point,
   .story-grid .story-point,
-
-  .story-point--1,
-  .story-point--2,
-  .story-point--3,
-  .story-point--4,
-  .story-point--5,
-  .story-point--6,
-  .story-point--7,
-  .story-point--8,
-  .story-point--9,
-  .story-point--10,
-  .story-point--11,
-  .story-point--12,
-  .story-point--13,
-  .story-point--14 {
-
-    grid-column: 1 !important;
-    grid-row: auto !important;
+  .story-grid .story-point--1,
+  .story-grid .story-point--2,
+  .story-grid .story-point--3,
+  .story-grid .story-point--4,
+  .story-grid .story-point--5,
+  .story-grid .story-point--6,
+  .story-grid .story-point--7,
+  .story-grid .story-point--8,
+  .story-grid .story-point--9,
+  .story-grid .story-point--10,
+  .story-grid .story-point--11,
+  .story-grid .story-point--12,
+  .story-grid .story-point--13,
+  .story-grid .story-point--14 {
+    grid-column: 1;
+    grid-row: auto;
 
     width: 100%;
     max-width: 320px;
 
-    margin: 0 auto;
-
-    transform: none;
-    left: auto;
+    margin: 0;
+    justify-self: center;
   }
 
   .story-card {
-
     aspect-ratio: auto;
     min-height: 250px;
-
-    padding: 30px 22px 24px;
   }
-
-  .story-image {
-
-    width: 78px;
-
-    top: -32px;
-    right: -10px;
-
-    border-width: 6px;
-  }
-
 }
+
+
+
