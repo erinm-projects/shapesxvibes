@@ -140,7 +140,9 @@ body {
   grid-column: 1;
   grid-row: 1;
 
-  justify-self: end;
+   justify-self: end;
+
+  margin-top: 35px;
 }
 
 .story-opening .story-point--2 {
