@@ -243,11 +243,11 @@ body {
 
 .story-grid .story-point {
   width: 260px;
+  min-width: 260px;
   max-width: 260px;
 
   margin: 0;
   transform: none;
-
   justify-self: start;
 }
 
@@ -470,7 +470,7 @@ min-height: 280px;
   }
 
   .story-grid {
-    grid-template-columns: repeat(3, 205px);
+    grid-template-columns: repeat(3, 260px);
 
     justify-content: center;
 
@@ -497,8 +497,8 @@ min-height: 280px;
     grid-column: auto;
     grid-row: auto;
 
-    width: 205px;
-    max-width: 205px;
+    width: 260px;
+    max-width: 260px;
 
     margin: 0;
     transform: none;
