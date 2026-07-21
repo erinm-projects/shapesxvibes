@@ -288,12 +288,12 @@ body {
 
 .story-connector-outline {
   stroke: #1e1e1e;
-  stroke-width: 16;
+  stroke-width: 5;
 }
 
 .story-connector-colour {
   stroke: #d1ff71;
-  stroke-width: 10;
+  stroke-width: 2.5;
 }
 
 /* =========================================================
