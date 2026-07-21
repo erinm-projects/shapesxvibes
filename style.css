@@ -442,15 +442,15 @@ body {
 }
 
 /* =========================================================
-   SMALL DESKTOP / TABLET
+   TABLET + SMALL DESKTOP
 ========================================================= */
 
 @media (max-width: 1050px) {
+
   .story-section {
     padding: 70px 24px 110px;
   }
 
-  /* Stack the introduction above cards 1–3 */
   .story-top {
     display: block;
     margin-bottom: 90px;
@@ -459,132 +459,57 @@ body {
   .story-intro {
     width: 100%;
     max-width: 720px;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
   }
 
-  /*
-    Cards 1–3 become a clean three-column row.
-    This removes desktop offsets and prevents overflow.
-  */
-  .story-opening {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 205px));
-    grid-template-rows: auto;
-
-    justify-content: center;
-
-    width: 100%;
-    margin: 0;
-
-    column-gap: 45px;
-    row-gap: 70px;
-  }
-
-  .story-opening .story-point--1,
-  .story-opening .story-point--2,
-  .story-opening .story-point--3 {
-    grid-column: auto;
-    grid-row: auto;
-
-    margin: 0;
-    transform: none;
-    justify-self: center;
-  }
-
-  /*
-    Lower story becomes a three-column grid.
-    HTML order will determine the sequence on tablet.
-  */
+  .story-opening,
   .story-grid {
+
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 205px));
+
+    grid-template-columns: repeat(3, minmax(205px, 205px));
 
     justify-content: center;
 
     width: 100%;
+
     margin: 0;
 
-    column-gap: 45px;
-    row-gap: 85px;
+    column-gap: clamp(18px, 4vw, 45px);
+    row-gap: 80px;
   }
 
+  .story-opening .story-point,
   .story-grid .story-point,
-  .story-grid .story-point--4,
-  .story-grid .story-point--5,
-  .story-grid .story-point--6,
-  .story-grid .story-point--7,
-  .story-grid .story-point--8,
-  .story-grid .story-point--9,
-  .story-grid .story-point--10,
-  .story-grid .story-point--11,
-  .story-grid .story-point--12,
-  .story-grid .story-point--13,
-  .story-grid .story-point--14 {
-    grid-column: auto;
-    grid-row: auto;
+
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14 {
+
+    grid-column: auto !important;
+    grid-row: auto !important;
 
     width: 205px;
     max-width: 205px;
 
     margin: 0;
     transform: none;
+    left: auto;
 
     justify-self: center;
   }
-}
 
-
-/* =========================================================
-   NARROW TABLET
-========================================================= */
-
-@media (max-width: 760px) {
-  .story-section {
-    padding: 60px 20px 100px;
-  }
-
-  .story-intro {
-    margin-bottom: 80px;
-  }
-
-  .story-intro h2 {
-    font-size: clamp(3rem, 12vw, 5rem);
-  }
-
-  .story-description {
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-
-  /*
-    Cards move to two columns.
-  */
-  .story-opening,
-  .story-grid {
-    grid-template-columns: repeat(2, minmax(0, 220px));
-
-    justify-content: center;
-
-    column-gap: 40px;
-    row-gap: 80px;
-  }
-
-  .story-opening .story-point,
-  .story-grid .story-point,
-  .story-grid .story-point--4,
-  .story-grid .story-point--5,
-  .story-grid .story-point--6,
-  .story-grid .story-point--7,
-  .story-grid .story-point--8,
-  .story-grid .story-point--9,
-  .story-grid .story-point--10,
-  .story-grid .story-point--11,
-  .story-grid .story-point--12,
-  .story-grid .story-point--13,
-  .story-grid .story-point--14 {
-    width: 100%;
-    max-width: 220px;
-  }
 }
 
 
@@ -593,97 +518,84 @@ body {
 ========================================================= */
 
 @media (max-width: 520px) {
+
   .story-section {
-    padding: 52px 18px 80px;
+    padding: 60px 18px 90px;
   }
 
   .story-intro {
-    margin-bottom: 75px;
-  }
-
-  .story-eyebrow {
-    font-size: 0.78rem;
+    margin-bottom: 70px;
   }
 
   .story-intro h2 {
-    font-size: clamp(2.8rem, 15vw, 4.1rem);
-    line-height: 0.96;
+    font-size: clamp(2.8rem, 15vw, 4.3rem);
   }
 
   .story-description {
-    margin-top: 24px;
+    font-size: 1rem;
+    line-height: 1.55;
   }
 
-  /*
-    One card per row on phones.
-  */
   .story-opening,
   .story-grid {
+
     display: grid;
+
     grid-template-columns: minmax(0, 320px);
 
     justify-content: center;
 
     width: 100%;
-    margin: 0;
 
-    row-gap: 76px;
-  }
-
-  .story-opening {
-    margin-bottom: 85px;
+    row-gap: 75px;
   }
 
   .story-opening .story-point,
-  .story-opening .story-point--1,
-  .story-opening .story-point--2,
-  .story-opening .story-point--3,
   .story-grid .story-point,
-  .story-grid .story-point--4,
-  .story-grid .story-point--5,
-  .story-grid .story-point--6,
-  .story-grid .story-point--7,
-  .story-grid .story-point--8,
-  .story-grid .story-point--9,
-  .story-grid .story-point--10,
-  .story-grid .story-point--11,
-  .story-grid .story-point--12,
-  .story-grid .story-point--13,
-  .story-grid .story-point--14 {
-    grid-column: 1;
-    grid-row: auto;
+
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14 {
+
+    grid-column: 1 !important;
+    grid-row: auto !important;
 
     width: 100%;
     max-width: 320px;
 
-    margin: 0;
-    transform: none;
+    margin: 0 auto;
 
-    justify-self: center;
+    transform: none;
+    left: auto;
   }
 
   .story-card {
-    width: 100%;
-    aspect-ratio: auto;
-    min-height: 270px;
 
-    padding: 32px 24px 25px;
+    aspect-ratio: auto;
+    min-height: 250px;
+
+    padding: 30px 22px 24px;
   }
 
   .story-image {
-    top: -33px;
-    right: -8px;
 
-    width: 82px;
+    width: 78px;
+
+    top: -32px;
+    right: -10px;
+
     border-width: 6px;
   }
 
-  .story-card h3 {
-    font-size: 1.3rem;
-  }
-
-  .story-card p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
 }
