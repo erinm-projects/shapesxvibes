@@ -66,7 +66,7 @@ body {
     The lower grid begins immediately after the taller
     of these two columns.
   */
-  margin-bottom: 65px;
+  margin-bottom: 35px;
 }
 
 
@@ -134,7 +134,6 @@ body {
   object-position: center top;
 }
 
-
 /* =========================================================
    STAGGERED STORY GRID
 ========================================================= */
@@ -147,94 +146,94 @@ body {
   align-items: start;
 
   width: 100%;
-  margin-top: -220px;
+  margin-top: 0;
 
   column-gap: 28px;
   row-gap: 85px;
 }
 
 
-/* Row 1: 1, 2, 3 — shifted right */
+/* Row 1: 1, 2, 3 */
 
 .story-grid .story-point--1 {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
 }
 
 .story-grid .story-point--2 {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1;
 }
 
 .story-grid .story-point--3 {
-  grid-column: 4;
+  grid-column: 3;
   grid-row: 1;
 }
 
 
-/* Row 2: 6, 5, 4 — aligned left */
+/* Row 2: 6, 5, 4 — shifted right */
 
 .story-grid .story-point--6 {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 2;
 }
 
 .story-grid .story-point--5 {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 2;
 }
 
 .story-grid .story-point--4 {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 2;
 }
 
 
-/* Row 3: 7, 8, 9 — shifted right */
+/* Row 3: 7, 8, 9 */
 
 .story-grid .story-point--7 {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 3;
 }
 
 .story-grid .story-point--8 {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 3;
 }
 
 .story-grid .story-point--9 {
-  grid-column: 4;
+  grid-column: 3;
   grid-row: 3;
 }
 
 
-/* Row 4: 12, 11, 10 — aligned left */
+/* Row 4: 12, 11, 10 — shifted right */
 
 .story-grid .story-point--12 {
-  grid-column: 1;
+  grid-column: 2;
   grid-row: 4;
 }
 
 .story-grid .story-point--11 {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 4;
 }
 
 .story-grid .story-point--10 {
-  grid-column: 3;
+  grid-column: 4;
   grid-row: 4;
 }
 
 
-/* Row 5: 13, 14 — shifted right */
+/* Row 5: 13, 14 */
 
 .story-grid .story-point--13 {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 5;
 }
 
 .story-grid .story-point--14 {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 5;
 }
 
@@ -248,21 +247,12 @@ body {
 
   margin: 0;
   transform: none;
-  justify-self: start;
-}
-
-
-/* Keep every lower card the same size */
-
-.story-grid .story-point {
-  width: 260px;
-  max-width: 260px;
-
-  margin: 0;
-  transform: none;
 
   justify-self: start;
 }
+
+
+
 /* =========================================================
    STORY POINT
 ========================================================= */
