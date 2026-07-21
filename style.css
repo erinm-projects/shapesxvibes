@@ -141,7 +141,7 @@ body {
 
 .story-grid {
   display: grid;
-  grid-template-columns: repeat(7, 205px);
+  grid-template-columns: repeat(7, 260px);
 
   justify-content: start;
   align-items: start;
@@ -242,8 +242,8 @@ body {
 /* Keep all cards equal */
 
 .story-grid .story-point {
-  width: 205px;
-  max-width: 205px;
+  width: 260px;
+  max-width: 260px;
 
   margin: 0;
   transform: none;
@@ -255,8 +255,8 @@ body {
 /* Keep every lower card the same size */
 
 .story-grid .story-point {
-  width: 205px;
-  max-width: 205px;
+  width: 260px;
+  max-width: 260px;
 
   margin: 0;
   transform: none;
@@ -272,7 +272,7 @@ body {
   z-index: 2;
 
   width: 100%;
-  max-width: 205px;
+  max-width: 260px;
 
   margin: 0;
 
