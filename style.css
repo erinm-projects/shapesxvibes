@@ -55,12 +55,7 @@
 
 
 /* =========================================================
-   /* =========================================================
    CONTINUOUS STORY LAYOUT
-========================================================= */
-
-/* =========================================================
-   STORY CARD POSITIONS
 ========================================================= */
 
 .story-snake {
@@ -80,15 +75,48 @@
 }
 
 
-/* 1: highest, right side */
+/* =========================================================
+   CONTINUOUS LINE
+========================================================= */
+
+.story-path {
+  position: absolute;
+  z-index: 0;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   STORY POINT BASE
+========================================================= */
+
+.story-point {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 195px;
+
+  justify-self: center;
+  align-self: start;
+}
+
+
+/* =========================================================
+   STORY CARD POSITIONS
+========================================================= */
 
 .story-point--1 {
   grid-column: 10 / 12;
   grid-row: 1;
 }
-
-
-/* 2: below and slightly left */
 
 .story-point--2 {
   grid-column: 8 / 10;
@@ -96,26 +124,17 @@
   transform: translateY(-40px);
 }
 
-
-/* 3: below and back right */
-
 .story-point--3 {
   grid-column: 10 / 12;
   grid-row: 2;
   transform: translateY(85px);
 }
 
-
-/* 6: upper-left of main curve */
-
 .story-point--6 {
   grid-column: 4 / 6;
   grid-row: 4;
   transform: translateY(-55px);
 }
-
-
-/* 7, 5, 4 across the middle */
 
 .story-point--7 {
   grid-column: 2 / 4;
@@ -132,16 +151,10 @@
   grid-row: 4;
 }
 
-
-/* 8 below 6 */
-
 .story-point--8 {
   grid-column: 4 / 6;
   grid-row: 5;
 }
-
-
-/* 9 and 10 continue right */
 
 .story-point--9 {
   grid-column: 6 / 8;
@@ -153,17 +166,11 @@
   grid-row: 6;
 }
 
-
-/* 11 lower-right */
-
 .story-point--11 {
   grid-column: 10 / 12;
   grid-row: 7;
   transform: translateY(35px);
 }
-
-
-/* Final row moves right to left */
 
 .story-point--12 {
   grid-column: 9 / 11;
@@ -178,4 +185,242 @@
 .story-point--14 {
   grid-column: 2 / 4;
   grid-row: 9;
+}
+
+
+/* =========================================================
+   SQUARE STORY CARD
+========================================================= */
+
+.story-card {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+
+  padding: 26px 20px 20px;
+
+  border: 3px solid var(--story-dark);
+  background: #ffffff;
+
+  text-align: left;
+  box-shadow: 8px 8px 0 var(--story-dark);
+
+  overflow: hidden;
+}
+
+
+/* Remove old connector line */
+
+.story-card::before {
+  display: none;
+}
+
+
+/* =========================================================
+   CIRCULAR IMAGE OVERLAY
+========================================================= */
+
+.story-image {
+  position: absolute;
+  z-index: 4;
+
+  top: -34px;
+  right: -20px;
+
+  width: 82px;
+  aspect-ratio: 1;
+
+  overflow: hidden;
+
+  border: 7px solid var(--story-lime);
+  border-radius: 50%;
+
+  outline: 2px solid var(--story-dark);
+  background: var(--story-lime);
+
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.story-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.story-point:hover .story-image {
+  transform: translateY(-5px) rotate(-2deg);
+  box-shadow: 7px 7px 0 var(--story-dark);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.story-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 43px;
+  min-height: 27px;
+
+  margin-bottom: 14px;
+  padding: 4px 10px;
+
+  border: 2px solid var(--story-dark);
+  border-radius: 999px;
+
+  background: var(--story-lime);
+
+  font-size: 0.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
+
+.story-card h3 {
+  max-width: calc(100% - 32px);
+  margin: 0 0 10px;
+
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.story-card p {
+  margin: 0;
+
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+
+/* Keep cards straight */
+
+.story-point:nth-of-type(even) .story-card,
+.story-point:nth-of-type(odd) .story-card {
+  transform: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 760px) {
+  .story-snake {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+
+    gap: 70px 28px;
+
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .story-path {
+    display: none;
+  }
+
+  .story-point,
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14 {
+    grid-column: auto;
+    grid-row: auto;
+
+    width: 100%;
+    max-width: none;
+
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .story-section {
+    padding: 70px 20px 90px;
+  }
+
+  .story-intro {
+    margin-bottom: 80px;
+  }
+
+  .story-intro h2 {
+    font-size: clamp(2.7rem, 14vw, 4.4rem);
+  }
+
+  .story-snake {
+    display: block;
+  }
+
+  .story-point,
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14 {
+    width: calc(100% - 12px);
+    max-width: none;
+
+    margin: 0 0 75px;
+
+    transform: none;
+  }
+
+  .story-image {
+    top: -32px;
+    right: -10px;
+
+    width: 76px;
+    border-width: 6px;
+  }
+
+  .story-card {
+    aspect-ratio: auto;
+    min-height: 220px;
+
+    padding: 27px 21px 23px;
+  }
 }
