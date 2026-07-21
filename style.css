@@ -59,393 +59,123 @@
    CONTINUOUS STORY LAYOUT
 ========================================================= */
 
+/* =========================================================
+   STORY CARD POSITIONS
+========================================================= */
+
 .story-snake {
   position: relative;
   z-index: 1;
 
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-auto-rows: 215px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(9, 220px);
 
-  gap: 55px 34px;
+  column-gap: 18px;
+  row-gap: 32px;
 
-  /*
-    Pulls the story upwards so the first card begins
-    alongside the main heading.
-  */
-  margin-top: -250px;
-  padding-top: 20px;
+  margin-top: -330px;
+  padding-top: 0;
+  padding-bottom: 80px;
 }
 
 
-/* =========================================================
-   CONTINUOUS CURVED LINE
-========================================================= */
-
-.story-path {
-  position: absolute;
-  z-index: 0;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   STORY POINT
-========================================================= */
-
-.story-point {
-  position: relative;
-  z-index: 2;
-
-  min-width: 0;
-
-  align-self: start;
-}
-
-
-/* =========================================================
-   INDIVIDUAL GRID POSITIONS
-========================================================= */
-
-/* Starts beside the heading */
+/* 1: highest, right side */
 
 .story-point--1 {
-  grid-column: 5 / 7;
+  grid-column: 10 / 12;
   grid-row: 1;
 }
 
-/* Curves down the right */
+
+/* 2: below and slightly left */
 
 .story-point--2 {
-  grid-column: 5 / 7;
+  grid-column: 8 / 10;
   grid-row: 2;
-  transform: translateX(-40px);
+  transform: translateY(-40px);
 }
+
+
+/* 3: below and back right */
 
 .story-point--3 {
+  grid-column: 10 / 12;
+  grid-row: 2;
+  transform: translateY(85px);
+}
+
+
+/* 6: upper-left of main curve */
+
+.story-point--6 {
   grid-column: 4 / 6;
-  grid-row: 3;
+  grid-row: 4;
+  transform: translateY(-55px);
 }
 
-/* Moves across towards the left */
 
-.story-point--4 {
+/* 7, 5, 4 across the middle */
+
+.story-point--7 {
   grid-column: 2 / 4;
-  grid-row: 3;
-  transform: translateY(70px);
-}
-
-.story-point--5 {
-  grid-column: 1 / 3;
   grid-row: 4;
 }
 
-/* Turns and moves back right */
-
-.story-point--6 {
-  grid-column: 2 / 4;
-  grid-row: 5;
+.story-point--5 {
+  grid-column: 6 / 8;
+  grid-row: 4;
 }
 
-.story-point--7 {
-  grid-column: 4 / 6;
-  grid-row: 5;
-  transform: translateY(45px);
+.story-point--4 {
+  grid-column: 9 / 11;
+  grid-row: 4;
 }
+
+
+/* 8 below 6 */
 
 .story-point--8 {
-  grid-column: 5 / 7;
+  grid-column: 4 / 6;
+  grid-row: 5;
+}
+
+
+/* 9 and 10 continue right */
+
+.story-point--9 {
+  grid-column: 6 / 8;
   grid-row: 6;
 }
 
-/* Turns back left */
-
-.story-point--9 {
-  grid-column: 4 / 6;
-  grid-row: 7;
-}
-
 .story-point--10 {
-  grid-column: 2 / 4;
-  grid-row: 7;
-  transform: translateY(55px);
+  grid-column: 8 / 10;
+  grid-row: 6;
 }
+
+
+/* 11 lower-right */
 
 .story-point--11 {
-  grid-column: 1 / 3;
-  grid-row: 8;
+  grid-column: 10 / 12;
+  grid-row: 7;
+  transform: translateY(35px);
 }
 
-/* Final turn right */
+
+/* Final row moves right to left */
 
 .story-point--12 {
-  grid-column: 2 / 4;
+  grid-column: 9 / 11;
   grid-row: 9;
 }
 
 .story-point--13 {
-  grid-column: 4 / 6;
+  grid-column: 6 / 8;
   grid-row: 9;
-  transform: translateY(45px);
 }
 
 .story-point--14 {
-  grid-column: 5 / 7;
-  grid-row: 10;
-}
-
-
-/* =========================================================
-   STORY CARD
-========================================================= */
-
-.story-card {
-  position: relative;
-  z-index: 2;
-
-  min-height: 180px;
-  padding: 30px 24px 24px;
-
-  border: 3px solid var(--story-dark);
-
-  background: #ffffff;
-  text-align: left;
-
-  box-shadow: 8px 8px 0 var(--story-dark);
-}
-
-
-/*
-  Remove the old short line between circle and card.
-*/
-
-.story-card::before {
-  display: none;
-}
-
-
-/* =========================================================
-   CIRCULAR IMAGE OVERLAY
-========================================================= */
-
-.story-image {
-  position: absolute;
-  z-index: 4;
-
-  top: -42px;
-  right: -23px;
-
-  width: 92px;
-  aspect-ratio: 1;
-
-  overflow: hidden;
-
-  border: 8px solid var(--story-lime);
-  border-radius: 50%;
-
-  outline: 2px solid var(--story-dark);
-  background: var(--story-lime);
-
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
-}
-
-.story-image img {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.story-point:hover .story-image {
-  transform: translateY(-5px) rotate(-2deg);
-  box-shadow: 7px 7px 0 var(--story-dark);
-}
-
-
-/* =========================================================
-   NUMBER
-========================================================= */
-
-.story-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 43px;
-  min-height: 27px;
-
-  margin-bottom: 18px;
-  padding: 4px 10px;
-
-  border: 2px solid var(--story-dark);
-  border-radius: 999px;
-
-  background: var(--story-lime);
-
-  font-size: 0.75rem;
-  font-weight: 900;
-  line-height: 1;
-}
-
-
-/* =========================================================
-   CARD TEXT
-========================================================= */
-
-.story-card h3 {
-  max-width: calc(100% - 30px);
-  margin: 0 0 12px;
-
-  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
-  font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 1.05;
-}
-
-.story-card p {
-  margin: 0;
-
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-
-/* Slight movement so cards feel less rigid */
-
-.story-point:nth-of-type(even) .story-card {
-  transform: rotate(0.6deg);
-}
-
-.story-point:nth-of-type(odd) .story-card {
-  transform: rotate(-0.4deg);
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 760px) {
-  .story-snake {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: auto;
-
-    margin-top: 0;
-    gap: 75px 30px;
-  }
-
-  .story-path {
-    display: none;
-  }
-
-  .story-point,
-  .story-point--1,
-  .story-point--2,
-  .story-point--3,
-  .story-point--4,
-  .story-point--5,
-  .story-point--6,
-  .story-point--7,
-  .story-point--8,
-  .story-point--9,
-  .story-point--10,
-  .story-point--11,
-  .story-point--12,
-  .story-point--13,
-  .story-point--14 {
-    grid-column: span 2;
-    grid-row: auto;
-    transform: none;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-  .story-section {
-    padding: 70px 20px 90px;
-  }
-
-  .story-intro {
-    margin-bottom: 80px;
-  }
-
-  .story-intro h2 {
-    font-size: clamp(2.7rem, 14vw, 4.4rem);
-  }
-
-  .story-snake {
-    display: block;
-    margin-top: 0;
-    padding-left: 20px;
-  }
-
-  .story-point,
-  .story-point--1,
-  .story-point--2,
-  .story-point--3,
-  .story-point--4,
-  .story-point--5,
-  .story-point--6,
-  .story-point--7,
-  .story-point--8,
-  .story-point--9,
-  .story-point--10,
-  .story-point--11,
-  .story-point--12,
-  .story-point--13,
-  .story-point--14 {
-    width: calc(100% - 12px);
-    margin: 0 0 75px;
-    transform: none;
-  }
-
-  .story-point::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-
-    top: 100%;
-    left: 34px;
-
-    width: 4px;
-    height: 76px;
-
-    background: var(--story-dark);
-  }
-
-  .story-point:last-of-type::before {
-    display: none;
-  }
-
-  .story-image {
-    top: -37px;
-    right: -12px;
-
-    width: 78px;
-
-    border-width: 6px;
-  }
-
-  .story-card {
-    min-height: 0;
-    padding: 27px 21px 23px;
-    transform: none !important;
-  }
+  grid-column: 2 / 4;
+  grid-row: 9;
 }
