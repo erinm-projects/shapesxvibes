@@ -280,6 +280,22 @@ body {
   z-index: 2;
 }
 
+.story-connector path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.story-connector-outline {
+  stroke: #1e1e1e;
+  stroke-width: 16;
+}
+
+.story-connector-colour {
+  stroke: #d1ff71;
+  stroke-width: 10;
+}
+
 /* =========================================================
    STORY POINT
 ========================================================= */
