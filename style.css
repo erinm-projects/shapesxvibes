@@ -1,3 +1,6 @@
+/* =========================================================
+   STORY SECTION
+========================================================= */
 
 .story-section {
   --story-dark: #1e1e1e;
@@ -8,7 +11,9 @@
 
   position: relative;
   overflow: hidden;
-  padding: 110px 24px 140px;
+
+  padding: 110px 30px 150px;
+
   background: var(--story-cream);
   color: var(--story-dark);
 }
@@ -20,16 +25,17 @@
 
 
 /* =========================================================
-   INTRO
+   INTRODUCTION
 ========================================================= */
 
 .story-intro {
-  width: min(780px, 100%);
+  width: min(760px, 100%);
   margin-bottom: 100px;
 }
 
 .story-eyebrow {
   margin: 0 0 18px;
+
   font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -40,156 +46,139 @@
 .story-intro h2 {
   max-width: 750px;
   margin: 0;
-  font-size: clamp(2.8rem, 6vw, 6.5rem);
+
+  font-size: clamp(3rem, 6vw, 6.5rem);
   font-weight: 900;
   letter-spacing: -0.065em;
   line-height: 0.94;
 }
 
 .story-description {
-  max-width: 720px;
+  max-width: 700px;
   margin: 32px 0 0;
+
   font-size: clamp(1rem, 1.35vw, 1.3rem);
   line-height: 1.6;
 }
 
 
 /* =========================================================
-   CONTINUOUS STORY LAYOUT
+   EDITORIAL STORY GRID
 ========================================================= */
 
-.story-snake {
-  position: relative;
-  z-index: 1;
-
+.story-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(9, 220px);
 
-  column-gap: 18px;
-  row-gap: 32px;
+  column-gap: 24px;
+  row-gap: 95px;
 
-  margin-top: -330px;
-  padding-top: 0;
-  padding-bottom: 80px;
+  align-items: start;
 }
 
 
 /* =========================================================
-   CONTINUOUS LINE
-========================================================= */
-
-.story-path {
-  position: absolute;
-  z-index: 0;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   STORY POINT BASE
+   STORY POINT
 ========================================================= */
 
 .story-point {
   position: relative;
-  z-index: 2;
 
   width: 100%;
-  max-width: 195px;
+  max-width: 250px;
 
   justify-self: center;
-  align-self: start;
 }
 
 
 /* =========================================================
-   STORY CARD POSITIONS
+   EDITORIAL POSITIONS
 ========================================================= */
 
+/* Opening card beside the introduction */
+
 .story-point--1 {
-  grid-column: 10 / 12;
-  grid-row: 1;
+  grid-column: 9 / 12;
+  margin-top: -260px;
 }
 
 .story-point--2 {
-  grid-column: 8 / 10;
-  grid-row: 2;
-  transform: translateY(-40px);
+  grid-column: 7 / 10;
+  margin-top: -40px;
 }
 
 .story-point--3 {
-  grid-column: 10 / 12;
-  grid-row: 2;
-  transform: translateY(85px);
+  grid-column: 10 / 13;
+  margin-top: 65px;
 }
 
-.story-point--6 {
-  grid-column: 4 / 6;
-  grid-row: 4;
-  transform: translateY(-55px);
-}
 
-.story-point--7 {
-  grid-column: 2 / 4;
-  grid-row: 4;
+/* Move across the page */
+
+.story-point--4 {
+  grid-column: 8 / 11;
+  margin-top: 20px;
 }
 
 .story-point--5 {
-  grid-column: 6 / 8;
-  grid-row: 4;
+  grid-column: 5 / 8;
+  margin-top: -50px;
 }
 
-.story-point--4 {
-  grid-column: 9 / 11;
-  grid-row: 4;
+.story-point--6 {
+  grid-column: 2 / 5;
+  margin-top: 35px;
+}
+
+
+/* Return towards the centre */
+
+.story-point--7 {
+  grid-column: 1 / 4;
+  margin-top: 80px;
 }
 
 .story-point--8 {
-  grid-column: 4 / 6;
-  grid-row: 5;
+  grid-column: 4 / 7;
+  margin-top: -35px;
 }
 
 .story-point--9 {
-  grid-column: 6 / 8;
-  grid-row: 6;
+  grid-column: 7 / 10;
+  margin-top: 65px;
 }
 
 .story-point--10 {
-  grid-column: 8 / 10;
-  grid-row: 6;
+  grid-column: 10 / 13;
+  margin-top: -25px;
 }
 
+
+/* Final movement back across */
+
 .story-point--11 {
-  grid-column: 10 / 12;
-  grid-row: 7;
-  transform: translateY(35px);
+  grid-column: 9 / 12;
+  margin-top: 75px;
 }
 
 .story-point--12 {
-  grid-column: 9 / 11;
-  grid-row: 9;
+  grid-column: 6 / 9;
+  margin-top: -20px;
 }
 
 .story-point--13 {
-  grid-column: 6 / 8;
-  grid-row: 9;
+  grid-column: 3 / 6;
+  margin-top: 65px;
 }
 
 .story-point--14 {
-  grid-column: 2 / 4;
-  grid-row: 9;
+  grid-column: 1 / 4;
+  margin-top: -30px;
 }
 
 
 /* =========================================================
-   SQUARE STORY CARD
+   SQUARE CARD
 ========================================================= */
 
 .story-card {
@@ -198,47 +187,43 @@
 
   width: 100%;
   aspect-ratio: 1 / 1;
-  min-height: 0;
 
-  padding: 26px 20px 20px;
+  box-sizing: border-box;
+
+  padding: 32px 25px 24px;
 
   border: 3px solid var(--story-dark);
-  background: #ffffff;
 
-  text-align: left;
-  box-shadow: 8px 8px 0 var(--story-dark);
+  background: #ffffff;
+  color: var(--story-dark);
+
+  box-shadow: 9px 9px 0 var(--story-dark);
 
   overflow: hidden;
-}
-
-
-/* Remove old connector line */
-
-.story-card::before {
-  display: none;
 }
 
 
 /* =========================================================
-   CIRCULAR IMAGE OVERLAY
+   CIRCULAR IMAGE
 ========================================================= */
 
 .story-image {
   position: absolute;
-  z-index: 4;
+  z-index: 5;
 
-  top: -34px;
-  right: -20px;
+  top: -42px;
+  right: -24px;
 
-  width: 82px;
+  width: 100px;
   aspect-ratio: 1;
 
   overflow: hidden;
 
-  border: 7px solid var(--story-lime);
+  border: 8px solid var(--story-lime);
   border-radius: 50%;
 
-  outline: 2px solid var(--story-dark);
+  outline: 3px solid var(--story-dark);
+
   background: var(--story-lime);
 
   transition:
@@ -252,12 +237,12 @@
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .story-point:hover .story-image {
-  transform: translateY(-5px) rotate(-2deg);
+  transform: translateY(-6px) rotate(-3deg);
   box-shadow: 7px 7px 0 var(--story-dark);
 }
 
@@ -271,18 +256,19 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 43px;
-  min-height: 27px;
+  min-width: 44px;
+  min-height: 29px;
 
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   padding: 4px 10px;
 
   border: 2px solid var(--story-dark);
   border-radius: 999px;
 
   background: var(--story-lime);
+  color: var(--story-dark);
 
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 900;
   line-height: 1;
 }
@@ -293,28 +279,131 @@
 ========================================================= */
 
 .story-card h3 {
-  max-width: calc(100% - 32px);
-  margin: 0 0 10px;
+  max-width: calc(100% - 35px);
+  margin: 0 0 14px;
 
-  font-size: 1rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.4rem);
   font-weight: 900;
   letter-spacing: -0.035em;
-  line-height: 1.05;
+  line-height: 1.08;
 }
 
 .story-card p {
   margin: 0;
 
-  font-size: 0.78rem;
-  line-height: 1.35;
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 
-/* Keep cards straight */
+/* =========================================================
+   ACCENT CARDS
+========================================================= */
 
-.story-point:nth-of-type(even) .story-card,
-.story-point:nth-of-type(odd) .story-card {
-  transform: none;
+.story-point--dark .story-card {
+  background: var(--story-dark);
+  color: var(--story-cream);
+}
+
+.story-point--dark .story-card h3,
+.story-point--dark .story-card p {
+  color: var(--story-cream);
+}
+
+.story-point--lime .story-card {
+  background: var(--story-lime);
+}
+
+.story-point--lime .story-number {
+  background: var(--story-cream);
+}
+
+.story-point--purple .story-card {
+  background: var(--story-purple);
+}
+
+.story-point--teal .story-card {
+  background: var(--story-teal);
+  color: var(--story-cream);
+}
+
+.story-point--teal .story-card h3,
+.story-point--teal .story-card p {
+  color: var(--story-cream);
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (max-width: 1100px) {
+  .story-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    row-gap: 90px;
+  }
+
+  .story-point {
+    max-width: 240px;
+    margin-top: 0;
+  }
+
+  .story-point--1 {
+    grid-column: 4 / 7;
+    margin-top: -180px;
+  }
+
+  .story-point--2 {
+    grid-column: 2 / 5;
+  }
+
+  .story-point--3 {
+    grid-column: 4 / 7;
+  }
+
+  .story-point--4 {
+    grid-column: 1 / 4;
+  }
+
+  .story-point--5 {
+    grid-column: 4 / 7;
+  }
+
+  .story-point--6 {
+    grid-column: 2 / 5;
+  }
+
+  .story-point--7 {
+    grid-column: 1 / 4;
+  }
+
+  .story-point--8 {
+    grid-column: 4 / 7;
+  }
+
+  .story-point--9 {
+    grid-column: 2 / 5;
+  }
+
+  .story-point--10 {
+    grid-column: 4 / 7;
+  }
+
+  .story-point--11 {
+    grid-column: 1 / 4;
+  }
+
+  .story-point--12 {
+    grid-column: 4 / 7;
+  }
+
+  .story-point--13 {
+    grid-column: 2 / 5;
+  }
+
+  .story-point--14 {
+    grid-column: 1 / 4;
+  }
 }
 
 
@@ -323,20 +412,17 @@
 ========================================================= */
 
 @media (max-width: 760px) {
-  .story-snake {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: none;
-    grid-auto-rows: auto;
-
-    gap: 70px 28px;
-
-    margin-top: 0;
-    padding-top: 0;
+  .story-section {
+    padding: 80px 24px 110px;
   }
 
-  .story-path {
-    display: none;
+  .story-intro {
+    margin-bottom: 90px;
+  }
+
+  .story-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 80px 30px;
   }
 
   .story-point,
@@ -355,12 +441,15 @@
   .story-point--13,
   .story-point--14 {
     grid-column: auto;
-    grid-row: auto;
 
     width: 100%;
     max-width: none;
 
-    transform: none;
+    margin-top: 0;
+  }
+
+  .story-card {
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -369,20 +458,16 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
   .story-section {
     padding: 70px 20px 90px;
   }
 
-  .story-intro {
-    margin-bottom: 80px;
-  }
-
   .story-intro h2 {
-    font-size: clamp(2.7rem, 14vw, 4.4rem);
+    font-size: clamp(2.7rem, 14vw, 4.3rem);
   }
 
-  .story-snake {
+  .story-grid {
     display: block;
   }
 
@@ -401,26 +486,34 @@
   .story-point--12,
   .story-point--13,
   .story-point--14 {
-    width: calc(100% - 12px);
-    max-width: none;
+    width: calc(100% - 16px);
+    max-width: 330px;
 
-    margin: 0 0 75px;
-
-    transform: none;
-  }
-
-  .story-image {
-    top: -32px;
-    right: -10px;
-
-    width: 76px;
-    border-width: 6px;
+    margin: 0 auto 85px;
   }
 
   .story-card {
     aspect-ratio: auto;
-    min-height: 220px;
+    min-height: 280px;
 
-    padding: 27px 21px 23px;
+    padding: 32px 24px 25px;
+  }
+
+  .story-image {
+    top: -37px;
+    right: -13px;
+
+    width: 88px;
+
+    border-width: 7px;
+  }
+
+  .story-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .story-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
