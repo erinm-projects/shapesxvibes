@@ -551,44 +551,6 @@ min-height: 280px;
   color: var(--story-cream);
 }
 
-/* =========================================================
-   SMALL STORY CURVES
-========================================================= */
-
-.story-layout {
-  position: relative;
-}
-
-.story-curve {
-  position: absolute;
-  z-index: 0;
-
-  width: 0;
-  height: 0;
-
-  border: none;
-
-  pointer-events: none;
-}
-
-.story-grid {
-  position: relative;
-  z-index: 1;
-}
-
-.story-curve--3-4 {
-  top: 245px;
-  left: 790px;
-
-  width: 120px;
-  height: 120px;
-
-  border-top: 4px solid var(--story-dark);
-  border-right: 4px solid var(--story-dark);
-
-  border-radius: 0 90px 0 0;
-}
-
 
 /* =========================================================
    TABLET + SMALL DESKTOP
@@ -651,6 +613,9 @@ min-height: 280px;
 
     justify-self: center;
   }
+   .card-connector {
+  display: none;
+}
 }
 
 
