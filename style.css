@@ -258,16 +258,25 @@ body {
 }
 
 .card-connector--3-4 {
-  top: 50%;
-  right: -95px;
+  top: 45%;
+  right: -110px;
 
-  width: 95px;
+  width: 110px;
   height: 260px;
+
+  border: none;
+}
+
+.card-connector--3-4::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
 
   border-top: 4px solid var(--story-dark);
   border-right: 4px solid var(--story-dark);
 
-  border-top-right-radius: 70px;
+  border-radius: 0 100% 0 0;
 }
 
 /* =========================================================
