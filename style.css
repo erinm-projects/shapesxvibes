@@ -50,7 +50,7 @@ body {
 
   overflow: hidden;
 
-  background: var(--story-cream);
+  background: var(--transparent);
   color: var(--story-dark);
 }
 
