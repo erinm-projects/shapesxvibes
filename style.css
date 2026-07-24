@@ -480,6 +480,33 @@ min-height: 280px;
 }
 
 /* =========================================================
+   SMALL STORY CURVES
+========================================================= */
+
+.story-layout {
+  position: relative;
+}
+
+.story-curve {
+  position: absolute;
+  z-index: 0;
+
+  width: 90px;
+  height: 90px;
+
+  border: 4px solid var(--story-dark);
+  pointer-events: none;
+}
+
+.story-grid {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+/* =========================================================
    TABLET + SMALL DESKTOP
 ========================================================= */
 
