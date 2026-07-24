@@ -618,6 +618,8 @@ min-height: 280px;
 
     justify-content: center;
 
+   margin-top: 0;
+
     width: 100%;
     column-gap: clamp(18px, 4vw, 45px);
     row-gap: 80px;
