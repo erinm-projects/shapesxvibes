@@ -120,10 +120,13 @@ body {
 }
 
 .story-quote-name {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
+
   font-size: 0.9rem;
   font-weight: 900;
   font-style: normal;
+
+  line-height: 1;
 }
 
 
