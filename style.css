@@ -594,7 +594,7 @@ min-height: 280px;
    TABLET + SMALL DESKTOP
 ========================================================= */
 
-@media (max-width: 1180px) {
+@media (max-width: 1350px) {
   .story-section {
     padding: 70px 24px 110px;
   }
