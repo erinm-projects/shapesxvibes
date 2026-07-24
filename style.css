@@ -145,23 +145,16 @@ body {
 ========================================================= */
 
 .story-feature-image {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
-  min-height: 620px;
+  min-height: 0;
+  height: auto;
 }
 
 .story-feature-image img {
-  display: block;
-
-  width: min(100%, 420px);
-  height: 620px;
+  width: min(100%, 320px);
+  height: auto;
+  max-height: 500px;
 
   object-fit: contain;
-  object-position: center top;
 }
 
 /* =========================================================
