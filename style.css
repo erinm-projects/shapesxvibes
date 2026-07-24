@@ -291,7 +291,8 @@ body {
   pointer-events: none;
 }
 
-.card-connector--3-4 {
+.card-connector--3-4,
+.card-connector--9-10 {
   top: 65%;
   right: -110px;
 
@@ -301,7 +302,8 @@ body {
   border: none;
 }
 
-.card-connector--3-4::after {
+.card-connector--3-4::after,
+.card-connector--9-10::after {
   content: "";
 
   position: absolute;
