@@ -128,6 +128,18 @@ body {
   line-height: 1.6;
 }
 
+.story-quote-credit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 14px;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 /* =========================================================
    TOP FEATURE IMAGE
