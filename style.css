@@ -561,12 +561,20 @@ min-height: 280px;
 }
 
 .story-feature-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
 
+  width: 320px;
+
   min-height: 0;
   height: auto;
+
+  pointer-events: none;
 }
 
 .story-feature-image img {
