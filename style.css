@@ -315,7 +315,29 @@ body {
   border-radius: 0 100% 0 0;
 }
 
+.card-connector--6-7,
+.card-connector--12-13 {
+  top: 65%;
+  left: -110px;
 
+  width: 110px;
+  height: 260px;
+
+  border: none;
+}
+
+.card-connector--6-7::after,
+.card-connector--12-13::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-top: 4px solid var(--story-dark);
+  border-left: 4px solid var(--story-dark);
+
+  border-radius: 100% 0 0 0;
+}
 
 /* =========================================================
    STORY POINT
