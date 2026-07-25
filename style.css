@@ -676,7 +676,8 @@ min-height: 280px;
   .story-grid .story-point--11,
   .story-grid .story-point--12,
   .story-grid .story-point--13,
-  .story-grid .story-point--14 {
+  .story-grid .story-point--14
+   .story-grid .story-point--15 {
     grid-column: 1;
     grid-row: auto;
 
