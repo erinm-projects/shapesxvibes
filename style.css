@@ -624,7 +624,7 @@ min-height: 280px;
    SMALL TABLETS
 ========================================================= */
 
-@media (max-width: 810px) {
+@media (max-width: 830px) {
 
    .story-grid {
   grid-template-columns: repeat(2, 260px);
