@@ -626,6 +626,10 @@ min-height: 280px;
 
 @media (max-width: 760px) {
 
+   .story-grid {
+  grid-template-columns: repeat(2, 260px);
+}
+
 }
 
 /* =========================================================
