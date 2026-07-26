@@ -164,6 +164,9 @@ body {
   object-position: center top;
 }
 
+.story-layout {
+  position: relative;
+}
 
 /* =========================================================
    STAGGERED STORY GRID
@@ -591,7 +594,7 @@ min-height: 280px;
 
     justify-content: center;
 
-   margin-top: 15px;
+   margin-top: 0px;
 
     width: 100%;
     column-gap: clamp(18px, 4vw, 45px);
@@ -627,6 +630,10 @@ min-height: 280px;
    .card-connector {
   display: none;
 }
+}
+
+.story-layout {
+  margin-top: 15px;
 }
 
 /* =========================================================
@@ -696,7 +703,7 @@ min-height: 280px;
   .story-grid .story-point--11,
   .story-grid .story-point--12,
   .story-grid .story-point--13,
-  .story-grid .story-point--14
+  .story-grid .story-point--14,
    .story-grid .story-point--15 {
     grid-column: 1;
     grid-row: auto;
