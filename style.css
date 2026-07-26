@@ -737,7 +737,7 @@ min-height: 280px;
 }
 
 .image-strip-item {
-  aspect-ratio: 1 / 1;
+  height: clamp(180px, 22vw, 420px);
   overflow: hidden;
 }
 
