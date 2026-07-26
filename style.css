@@ -750,3 +750,52 @@ min-height: 280px;
   object-fit: cover;
 }
 
+/* =========================================================
+   BLACK TEXT SECTION
+========================================================= */
+
+.story-cta {
+  background: #1e1e1e;
+  color: #ffffff;
+
+  padding: 90px 30px 110px;
+}
+
+.story-cta-inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.story-cta-eyebrow {
+  margin: 0 0 18px;
+
+  color: #d1ff71;
+
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.story-cta h2 {
+  max-width: 900px;
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.story-cta h2 span {
+  color: #d1ff71;
+}
+
+.story-cta-copy {
+  max-width: 650px;
+  margin: 30px 0 0;
+
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
