@@ -49,6 +49,7 @@ body {
   --story-purple: #9192ff;
 
   min-height: 100vh;
+
   padding: 80px 30px 70px;
 
   overflow: hidden;
@@ -64,22 +65,18 @@ body {
 
 
 /* =========================================================
-   TOP SECTION
+   TOP STORY AREA
 
-   Left: heading and quote
-   Right: feature image
+   Text stays in normal flow.
+   Silhouette floats independently in top-right.
 ========================================================= */
 
 .story-top {
-  display: grid;
+  position: relative;
 
-  grid-template-columns:
-    minmax(0, 1.15fr)
-    minmax(430px, 0.85fr);
+  display: block;
 
-  align-items: start;
-
-  gap: 30px;
+  min-height: 620px;
 
   margin-bottom: 35px;
 }
@@ -90,8 +87,12 @@ body {
 ========================================================= */
 
 .story-intro {
-  width: 100%;
-  max-width: 700px;
+  position: relative;
+  z-index: 2;
+
+  width: calc(100% - 440px);
+  max-width: 790px;
+
   margin: 0;
 }
 
@@ -100,61 +101,81 @@ body {
 
   font-size: 0.85rem;
   font-weight: 800;
+
   letter-spacing: 0.12em;
   line-height: 1;
+
   text-transform: uppercase;
 }
 
 .story-intro h2 {
-  max-width: 700px;
   margin: 0;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 6vw, 6rem);
+
+  font-size: clamp(4.7rem, 6vw, 6rem);
   font-weight: 700;
 
   letter-spacing: -0.055em;
   line-height: 0.94;
+
+  /*
+    Only the <br> elements are allowed
+    to create new lines.
+  */
+  white-space: nowrap;
 }
 
 .story-quote {
-  max-width: 680px;
+  max-width: 760px;
+
   margin: 30px 0 0;
 
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-style: italic;
+
   line-height: 1.6;
 }
 
 .story-quote-name {
-  margin: 1px 0 0;
+  margin: 16px 0 0;
 
   font-size: 0.9rem;
   font-weight: 900;
   font-style: normal;
+
   line-height: 1;
 }
 
 
 /* =========================================================
-   TOP FEATURE IMAGE
+   TOP SILHOUETTE
+
+   Decorative element:
+   does NOT affect document height.
 ========================================================= */
 
 .story-feature-image {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  position: absolute;
+  z-index: 1;
 
-  width: 100%;
-  height: 100%;
-  min-height: 620px;
+  top: 25px;
+  right: 0;
+
+  display: block;
+
+  width: clamp(300px, 28vw, 420px);
+  height: auto;
+  min-height: 0;
+
+  pointer-events: none;
 }
 
 .story-feature-image img {
   display: block;
 
-  width: min(100%, 420px);
-  height: 620px;
+  width: 100%;
+  height: auto;
 
   object-fit: contain;
   object-position: center top;
@@ -167,12 +188,13 @@ body {
 
 .story-layout {
   position: relative;
+
   margin-top: 15px;
 }
 
 
 /* =========================================================
-   STAGGERED STORY GRID
+   STAGGERED DESKTOP STORY GRID
 ========================================================= */
 
 .story-grid {
@@ -184,6 +206,11 @@ body {
   align-items: start;
 
   width: 100%;
+
+  /*
+    Cards intentionally rise into the top composition.
+    Silhouette can therefore visually sit behind this area.
+  */
   margin-top: -180px;
 
   column-gap: 28px;
@@ -192,10 +219,10 @@ body {
 
 
 /* =========================================================
-   GRID POSITIONS
+   DESKTOP CARD POSITIONS
 ========================================================= */
 
-/* Row 1: 1, 2, 3 */
+/* Row 1 */
 
 .story-point--1 {
   grid-column: 1;
@@ -213,7 +240,7 @@ body {
 }
 
 
-/* Row 2: 6, 5, 4 */
+/* Row 2 */
 
 .story-point--6 {
   grid-column: 2;
@@ -231,7 +258,7 @@ body {
 }
 
 
-/* Row 3: 7, 8, 9 */
+/* Row 3 */
 
 .story-point--7 {
   grid-column: 1;
@@ -249,7 +276,7 @@ body {
 }
 
 
-/* Row 4: 12, 11, 10 */
+/* Row 4 */
 
 .story-point--12 {
   grid-column: 2;
@@ -267,7 +294,7 @@ body {
 }
 
 
-/* Row 5: 13, 14, 15 */
+/* Row 5 */
 
 .story-point--13 {
   grid-column: 1;
@@ -315,7 +342,7 @@ body {
 }
 
 
-/* Connectors moving towards the right */
+/* RIGHT-HAND CONNECTORS */
 
 .card-connector--3-4,
 .card-connector--9-10 {
@@ -340,7 +367,7 @@ body {
 }
 
 
-/* Connectors moving towards the left */
+/* LEFT-HAND CONNECTORS */
 
 .card-connector--6-7,
 .card-connector--12-13 {
@@ -413,6 +440,7 @@ body {
   right: -18px;
 
   width: 110px;
+
   aspect-ratio: 1;
 
   overflow: hidden;
@@ -453,6 +481,7 @@ body {
 
 .story-number {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -470,6 +499,7 @@ body {
 
   font-size: 0.72rem;
   font-weight: 900;
+
   line-height: 1;
 }
 
@@ -494,6 +524,7 @@ body {
   margin: 0;
 
   font-size: 0.77rem;
+
   line-height: 1.4;
 }
 
@@ -536,70 +567,62 @@ body {
 
 
 /* =========================================================
-   TABLET + SMALL DESKTOP
+   MEDIUM DESKTOP / TABLET
    1180px AND BELOW
+
+   Silhouette remains top-right.
+   Text width and image size reduce smoothly.
 ========================================================= */
 
 @media (max-width: 1180px) {
 
   .story-section {
-    padding: 70px 24px 110px;
+    padding: 70px 24px 100px;
   }
 
-
-  /* Keep intro and feature image in document flow */
-
   .story-top {
-    display: grid;
+    min-height: clamp(500px, 48vw, 570px);
 
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(180px, 320px);
+    margin-bottom: 20px;
+  }
 
-    align-items: start;
+  .story-intro {
+    width: calc(100% - clamp(260px, 31vw, 360px));
+    max-width: 720px;
+  }
 
-    gap: 20px;
-
-    margin-bottom: 35px;
+  .story-intro h2 {
+    font-size: clamp(4rem, 7.2vw, 5.3rem);
   }
 
   .story-feature-image {
-    position: static;
+    top: 20px;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-
-    width: 100%;
-    height: auto;
-    min-height: 0;
-
-    pointer-events: none;
-  }
-
-  .story-feature-image img {
-    display: block;
-
-    width: clamp(180px, 26vw, 320px);
-    height: auto;
-    max-height: 500px;
-
-    object-fit: contain;
-    object-position: center top;
+    width: clamp(240px, 28vw, 330px);
   }
 
 
-  /* Convert story cards to standard 3-column layout */
+  /* ---------------------------------------------------------
+     STANDARD RESPONSIVE CARD GRID
+
+     No hard-coded 3 -> 2 jump.
+     Browser fits as many 260px cards as genuinely fit.
+  --------------------------------------------------------- */
 
   .story-grid {
-    grid-template-columns: repeat(3, 260px);
+    grid-template-columns:
+      repeat(auto-fit, minmax(260px, 260px));
 
     justify-content: center;
 
-    width: 100%;
-    margin-top: 0;
+    width: min(880px, 100%);
 
-    column-gap: clamp(18px, 4vw, 45px);
+    margin:
+      clamp(-135px, -10vw, -90px)
+      auto
+      0;
+
+    column-gap: clamp(20px, 3vw, 32px);
     row-gap: 80px;
   }
 
@@ -638,26 +661,89 @@ body {
 
 
 /* =========================================================
-   SMALL TABLETS
-   830px AND BELOW
+   NARROW TABLET
+   900px AND BELOW
 ========================================================= */
 
-@media (max-width: 830px) {
+@media (max-width: 900px) {
 
   .story-top {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(150px, 230px);
-
-    gap: 15px;
+    min-height: 520px;
   }
 
-  .story-feature-image img {
-    width: min(100%, 230px);
+  .story-intro {
+    width: calc(100% - clamp(200px, 28vw, 250px));
+  }
+
+  .story-intro h2 {
+    font-size: clamp(3.6rem, 8.3vw, 4.6rem);
+  }
+
+  .story-quote {
+    font-size: 1rem;
+  }
+
+  .story-feature-image {
+    top: 20px;
+
+    width: clamp(180px, 25vw, 225px);
   }
 
   .story-grid {
-    grid-template-columns: repeat(2, 260px);
+    width: min(580px, 100%);
+
+    margin-top: -90px;
+  }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   700px AND BELOW
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .story-section {
+    padding: 55px 20px 85px;
+  }
+
+  .story-top {
+    min-height: 500px;
+  }
+
+  .story-intro {
+    /*
+      Still reserve a smaller right-hand lane
+      for the silhouette.
+    */
+    width: calc(100% - clamp(130px, 25vw, 175px));
+  }
+
+  .story-intro h2 {
+    font-size: clamp(3.3rem, 9.5vw, 4rem);
+  }
+
+  .story-quote {
+    /*
+      Quote is allowed to extend farther right
+      because silhouette is mostly above it.
+    */
+    width: calc(100vw - 40px);
+    max-width: 620px;
+
+    font-size: 0.98rem;
+  }
+
+  .story-feature-image {
+    top: 10px;
+    right: 0;
+
+    width: clamp(125px, 23vw, 160px);
+  }
+
+  .story-grid {
+    margin-top: -65px;
   }
 }
 
@@ -665,54 +751,108 @@ body {
 /* =========================================================
    MOBILE
    520px AND BELOW
+
+   IMPORTANT:
+   Silhouette STILL stays top-right.
+   It does NOT move between Erini and card 01.
 ========================================================= */
 
 @media (max-width: 520px) {
 
   .story-section {
-    padding: 52px 18px 80px;
+    padding: 30px 18px 70px;
+  }
+
+  .story-container {
+    width: 100%;
   }
 
   .story-top {
-    display: block;
+    /*
+      Height comes primarily from the text.
+      Silhouette remains floating.
+    */
+    min-height: 0;
 
-    margin-bottom: 70px;
+    margin-bottom: 45px;
   }
 
   .story-intro {
-    margin-bottom: 30px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .story-eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 0.75rem;
   }
 
   .story-intro h2 {
-    font-size: clamp(2.8rem, 15vw, 4.1rem);
+    /*
+      Three lines always:
+      Throwing
+      Shapes,
+      Creating Vibes.
+    */
+    width: calc(100% - clamp(75px, 20vw, 100px));
+
+    font-size: clamp(2.8rem, 13vw, 4rem);
+
+    line-height: 0.91;
+
+    white-space: nowrap;
+  }
+
+  .story-quote {
+    width: calc(100% - 8px);
+    max-width: none;
+
+    margin-top: 28px;
+
+    font-size: clamp(0.9rem, 3.6vw, 1rem);
+
+    line-height: 1.6;
+  }
+
+  .story-quote-name {
+    margin-top: 16px;
   }
 
 
-  /* Feature image becomes a normal block below intro */
+  /* ---------------------------------------------------------
+     PHONE SILHOUETTE
+
+     Small, top-right, same visual concept as screenshot 8.
+  --------------------------------------------------------- */
 
   .story-feature-image {
-    position: static;
+    position: absolute;
 
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    top: 12px;
+    right: -3px;
 
-    width: 100%;
+    width: clamp(70px, 20vw, 100px);
+
     height: auto;
     min-height: 0;
   }
 
   .story-feature-image img {
-    width: min(100%, 280px);
+    width: 100%;
     height: auto;
-    max-height: none;
 
-    object-fit: contain;
-    object-position: center top;
+    max-height: none;
   }
 
 
-  /* Single column story cards */
+  /* ---------------------------------------------------------
+     SINGLE COLUMN CARDS
+  --------------------------------------------------------- */
+
+  .story-layout {
+    margin-top: 0;
+  }
 
   .story-grid {
     display: grid;
@@ -722,6 +862,8 @@ body {
     justify-content: center;
 
     width: 100%;
+
+    margin: 0 auto;
 
     column-gap: 0;
     row-gap: 76px;
@@ -762,6 +904,39 @@ body {
 
 
 /* =========================================================
+   VERY SMALL PHONES
+   390px AND BELOW
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .story-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .story-intro h2 {
+    width: calc(100% - 68px);
+
+    font-size: clamp(2.55rem, 13vw, 3.25rem);
+  }
+
+  .story-feature-image {
+    top: 15px;
+    right: -2px;
+
+    width: clamp(62px, 19vw, 78px);
+  }
+
+  .story-quote {
+    width: 100%;
+
+    font-size: 0.9rem;
+  }
+}
+
+
+/* =========================================================
    FULL-WIDTH IMAGE STRIP
 ========================================================= */
 
@@ -796,7 +971,7 @@ body {
 
 
 /* =========================================================
-   BLACK TEXT / CTA SECTION
+   BLACK CTA SECTION
 ========================================================= */
 
 .story-cta {
@@ -830,6 +1005,7 @@ body {
   margin: 0;
 
   font-family: Georgia, "Times New Roman", serif;
+
   font-size: clamp(3rem, 7vw, 6.5rem);
 
   letter-spacing: -0.05em;
@@ -846,5 +1022,6 @@ body {
   margin: 30px 0 0;
 
   font-size: 1.1rem;
+
   line-height: 1.6;
 }
