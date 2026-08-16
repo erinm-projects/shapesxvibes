@@ -53,7 +53,7 @@ body {
 
   overflow: hidden;
 
-  background: var(--transparent);
+  background: transparent;
   color: var(--story-dark);
 }
 
@@ -67,11 +67,12 @@ body {
    TOP SECTION
 
    Left: heading and quote
-   Right: cards 1, 2 and 3
+   Right: feature image
 ========================================================= */
 
 .story-top {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1.15fr)
     minmax(430px, 0.85fr);
@@ -80,10 +81,6 @@ body {
 
   gap: 30px;
 
-  /*
-    The lower grid begins immediately after the taller
-    of these two columns.
-  */
   margin-bottom: 35px;
 }
 
@@ -115,6 +112,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 700;
+
   letter-spacing: -0.055em;
   line-height: 0.94;
 }
@@ -134,10 +132,8 @@ body {
   font-size: 0.9rem;
   font-weight: 900;
   font-style: normal;
-
   line-height: 1;
 }
-
 
 
 /* =========================================================
@@ -164,9 +160,16 @@ body {
   object-position: center top;
 }
 
+
+/* =========================================================
+   STORY LAYOUT
+========================================================= */
+
 .story-layout {
   position: relative;
+  margin-top: 15px;
 }
+
 
 /* =========================================================
    STAGGERED STORY GRID
@@ -174,6 +177,7 @@ body {
 
 .story-grid {
   display: grid;
+
   grid-template-columns: repeat(7, 260px);
 
   justify-content: start;
@@ -187,37 +191,41 @@ body {
 }
 
 
+/* =========================================================
+   GRID POSITIONS
+========================================================= */
+
 /* Row 1: 1, 2, 3 */
 
-.story-grid .story-point--1 {
+.story-point--1 {
   grid-column: 1;
   grid-row: 1;
 }
 
-.story-grid .story-point--2 {
+.story-point--2 {
   grid-column: 2;
   grid-row: 1;
 }
 
-.story-grid .story-point--3 {
+.story-point--3 {
   grid-column: 3;
   grid-row: 1;
 }
 
 
-/* Row 2: 6, 5, 4 — shifted right */
+/* Row 2: 6, 5, 4 */
 
-.story-grid .story-point--6 {
+.story-point--6 {
   grid-column: 2;
   grid-row: 2;
 }
 
-.story-grid .story-point--5 {
+.story-point--5 {
   grid-column: 3;
   grid-row: 2;
 }
 
-.story-grid .story-point--4 {
+.story-point--4 {
   grid-column: 4;
   grid-row: 2;
 }
@@ -225,61 +233,63 @@ body {
 
 /* Row 3: 7, 8, 9 */
 
-.story-grid .story-point--7 {
+.story-point--7 {
   grid-column: 1;
   grid-row: 3;
 }
 
-.story-grid .story-point--8 {
+.story-point--8 {
   grid-column: 2;
   grid-row: 3;
 }
 
-.story-grid .story-point--9 {
+.story-point--9 {
   grid-column: 3;
   grid-row: 3;
 }
 
 
-/* Row 4: 12, 11, 10 — shifted right */
+/* Row 4: 12, 11, 10 */
 
-.story-grid .story-point--12 {
+.story-point--12 {
   grid-column: 2;
   grid-row: 4;
 }
 
-.story-grid .story-point--11 {
+.story-point--11 {
   grid-column: 3;
   grid-row: 4;
 }
 
-.story-grid .story-point--10 {
+.story-point--10 {
   grid-column: 4;
   grid-row: 4;
 }
 
 
-/* Row 5: 13, 14 */
+/* Row 5: 13, 14, 15 */
 
-.story-grid .story-point--13 {
+.story-point--13 {
   grid-column: 1;
   grid-row: 5;
 }
 
-.story-grid .story-point--14 {
+.story-point--14 {
   grid-column: 2;
   grid-row: 5;
 }
 
-.story-grid .story-point--15 {
+.story-point--15 {
   grid-column: 3;
   grid-row: 5;
 }
 
 
-/* Keep all cards equal */
+/* =========================================================
+   STORY POINT
+========================================================= */
 
-.story-grid .story-point {
+.story-point {
   position: relative;
   z-index: 2;
 
@@ -288,26 +298,32 @@ body {
   max-width: 260px;
 
   margin: 0;
-  transform: none;
 
   justify-self: start;
 }
 
+
+/* =========================================================
+   CARD CONNECTORS
+========================================================= */
+
 .card-connector {
   position: absolute;
   z-index: 0;
+
   pointer-events: none;
 }
 
+
+/* Connectors moving towards the right */
+
 .card-connector--3-4,
 .card-connector--9-10 {
-  top: 65%;
+  top: 45%;
   right: -110px;
 
   width: 110px;
   height: 260px;
-
-  border: none;
 }
 
 .card-connector--3-4::after,
@@ -323,6 +339,9 @@ body {
   border-radius: 0 100% 0 0;
 }
 
+
+/* Connectors moving towards the left */
+
 .card-connector--6-7,
 .card-connector--12-13 {
   top: 65%;
@@ -330,8 +349,6 @@ body {
 
   width: 110px;
   height: 260px;
-
-  border: none;
 }
 
 .card-connector--6-7::after,
@@ -347,37 +364,6 @@ body {
   border-radius: 100% 0 0 0;
 }
 
-/* =========================================================
-   STORY POINT
-========================================================= */
-
-.card-connector {
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.card-connector--3-4 {
-  top: 45%;
-  right: -110px;
-
-  width: 110px;
-  height: 260px;
-
-  border: none;
-}
-
-.card-connector--3-4::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  border-top: 4px solid var(--story-dark);
-  border-right: 4px solid var(--story-dark);
-
-  border-radius: 0 100% 0 0;
-}
 
 /* =========================================================
    STORY CARD
@@ -390,8 +376,7 @@ body {
   display: block;
 
   width: 100%;
-  aspect-ratio: auto;
-min-height: 280px;
+  min-height: 280px;
 
   padding: 28px 21px 20px;
 
@@ -411,12 +396,13 @@ min-height: 280px;
 
 .story-point:hover .story-card {
   transform: translateY(-4px);
+
   box-shadow: 11px 11px 0 var(--story-dark);
 }
 
 
 /* =========================================================
-   CIRCULAR IMAGE
+   CIRCULAR STORY IMAGE
 ========================================================= */
 
 .story-image {
@@ -450,17 +436,19 @@ min-height: 280px;
   height: 100%;
 
   object-fit: cover;
+
   border-radius: 50%;
 }
 
 .story-point:hover .story-image {
   transform: translateY(-5px) rotate(-3deg);
+
   box-shadow: 6px 6px 0 var(--story-dark);
 }
 
 
 /* =========================================================
-   NUMBER
+   STORY NUMBER
 ========================================================= */
 
 .story-number {
@@ -492,10 +480,12 @@ min-height: 280px;
 
 .story-card h3 {
   max-width: calc(100% - 28px);
+
   margin: 0 0 11px;
 
   font-size: 1rem;
   font-weight: 900;
+
   letter-spacing: -0.025em;
   line-height: 1.08;
 }
@@ -547,179 +537,229 @@ min-height: 280px;
 
 /* =========================================================
    TABLET + SMALL DESKTOP
+   1180px AND BELOW
 ========================================================= */
 
 @media (max-width: 1180px) {
+
   .story-section {
     padding: 70px 24px 110px;
   }
 
+
+  /* Keep intro and feature image in document flow */
+
   .story-top {
-  position: relative;
+    display: grid;
 
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.45fr);
-  gap: 20px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(180px, 320px);
 
-  margin-bottom: 0px;
-     display: block;
-}
+    align-items: start;
 
-.story-feature-image {
-  position: absolute;
-  top: 0;
-  right: 0;
+    gap: 20px;
 
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+    margin-bottom: 35px;
+  }
 
-  width: 320px;
+  .story-feature-image {
+    position: static;
 
-  min-height: 0;
-  height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
 
-  pointer-events: none;
-}
+    width: 100%;
+    height: auto;
+    min-height: 0;
 
-.story-feature-image img {
-  width: clamp(180px, 26vw, 320px);
-  height: auto;
-  max-height: 500px;
+    pointer-events: none;
+  }
 
-  object-fit: contain;
-}
+  .story-feature-image img {
+    display: block;
+
+    width: clamp(180px, 26vw, 320px);
+    height: auto;
+    max-height: 500px;
+
+    object-fit: contain;
+    object-position: center top;
+  }
+
+
+  /* Convert story cards to standard 3-column layout */
 
   .story-grid {
     grid-template-columns: repeat(3, 260px);
 
     justify-content: center;
 
-   margin-top: 0px;
-
     width: 100%;
+    margin-top: 0;
+
     column-gap: clamp(18px, 4vw, 45px);
     row-gap: 80px;
   }
 
-  .story-grid .story-point,
-  .story-grid .story-point--1,
-  .story-grid .story-point--2,
-  .story-grid .story-point--3,
-  .story-grid .story-point--4,
-  .story-grid .story-point--5,
-  .story-grid .story-point--6,
-  .story-grid .story-point--7,
-  .story-grid .story-point--8,
-  .story-grid .story-point--9,
-  .story-grid .story-point--10,
-  .story-grid .story-point--11,
-  .story-grid .story-point--12,
-  .story-grid .story-point--13,
-  .story-grid .story-point--14 {
+  .story-point,
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14,
+  .story-point--15 {
     grid-column: auto;
     grid-row: auto;
 
     width: 260px;
+    min-width: 260px;
     max-width: 260px;
 
     margin: 0;
-    transform: none;
 
     justify-self: center;
   }
-   .card-connector {
-  display: none;
-}
+
+  .card-connector {
+    display: none;
+  }
 }
 
-.story-layout {
-  margin-top: 15px;
-}
 
 /* =========================================================
    SMALL TABLETS
+   830px AND BELOW
 ========================================================= */
 
 @media (max-width: 830px) {
 
-   .story-grid {
-  grid-template-columns: repeat(2, 260px);
+  .story-top {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(150px, 230px);
+
+    gap: 15px;
+  }
+
+  .story-feature-image img {
+    width: min(100%, 230px);
+  }
+
+  .story-grid {
+    grid-template-columns: repeat(2, 260px);
+  }
 }
 
-}
 
 /* =========================================================
    MOBILE
+   520px AND BELOW
 ========================================================= */
 
 @media (max-width: 520px) {
+
   .story-section {
     padding: 52px 18px 80px;
   }
 
   .story-top {
     display: block;
-    margin-bottom: 85px;
+
+    margin-bottom: 70px;
   }
 
   .story-intro {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
   }
 
   .story-intro h2 {
     font-size: clamp(2.8rem, 15vw, 4.1rem);
   }
 
+
+  /* Feature image becomes a normal block below intro */
+
   .story-feature-image {
+    position: static;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
     min-height: 0;
   }
 
   .story-feature-image img {
     width: min(100%, 280px);
-    height: 430px;
+    height: auto;
+    max-height: none;
+
+    object-fit: contain;
+    object-position: center top;
   }
+
+
+  /* Single column story cards */
 
   .story-grid {
     display: grid;
+
     grid-template-columns: minmax(0, 320px);
 
     justify-content: center;
 
     width: 100%;
+
+    column-gap: 0;
     row-gap: 76px;
   }
 
-  .story-grid .story-point,
-  .story-grid .story-point--1,
-  .story-grid .story-point--2,
-  .story-grid .story-point--3,
-  .story-grid .story-point--4,
-  .story-grid .story-point--5,
-  .story-grid .story-point--6,
-  .story-grid .story-point--7,
-  .story-grid .story-point--8,
-  .story-grid .story-point--9,
-  .story-grid .story-point--10,
-  .story-grid .story-point--11,
-  .story-grid .story-point--12,
-  .story-grid .story-point--13,
-  .story-grid .story-point--14,
-   .story-grid .story-point--15 {
+  .story-point,
+  .story-point--1,
+  .story-point--2,
+  .story-point--3,
+  .story-point--4,
+  .story-point--5,
+  .story-point--6,
+  .story-point--7,
+  .story-point--8,
+  .story-point--9,
+  .story-point--10,
+  .story-point--11,
+  .story-point--12,
+  .story-point--13,
+  .story-point--14,
+  .story-point--15 {
     grid-column: 1;
     grid-row: auto;
 
     width: 100%;
+    min-width: 0;
     max-width: 320px;
 
     margin: 0;
+
     justify-self: center;
   }
 
   .story-card {
-    aspect-ratio: auto;
     min-height: 250px;
   }
 }
+
 
 /* =========================================================
    FULL-WIDTH IMAGE STRIP
@@ -727,9 +767,11 @@ min-height: 280px;
 
 .image-strip {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
 
   width: 100vw;
+
   margin: 0;
   padding: 0;
 
@@ -738,6 +780,7 @@ min-height: 280px;
 
 .image-strip-item {
   height: clamp(180px, 25vw, 420px);
+
   overflow: hidden;
 }
 
@@ -748,22 +791,24 @@ min-height: 280px;
   height: 100%;
 
   object-fit: cover;
-   object-position: center 20%;
+  object-position: center 20%;
 }
 
+
 /* =========================================================
-   BLACK TEXT SECTION
+   BLACK TEXT / CTA SECTION
 ========================================================= */
 
 .story-cta {
+  padding: 90px 30px 110px;
+
   background: #1e1e1e;
   color: #ffffff;
-
-  padding: 90px 30px 110px;
 }
 
 .story-cta-inner {
   width: min(1100px, 100%);
+
   margin: 0 auto;
 }
 
@@ -774,18 +819,21 @@ min-height: 280px;
 
   font-size: 0.85rem;
   font-weight: 900;
+
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .story-cta h2 {
   max-width: 900px;
+
   margin: 0;
 
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 7vw, 6.5rem);
-  line-height: 0.95;
+
   letter-spacing: -0.05em;
+  line-height: 0.95;
 }
 
 .story-cta h2 span {
@@ -794,9 +842,9 @@ min-height: 280px;
 
 .story-cta-copy {
   max-width: 650px;
+
   margin: 30px 0 0;
 
   font-size: 1.1rem;
   line-height: 1.6;
 }
-
