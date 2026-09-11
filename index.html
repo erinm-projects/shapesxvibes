@@ -419,109 +419,128 @@
 VIBE CHECK
 ========================================================= -->
 
+<!-- =========================================================
+VIBE CHECK
+========================================================= -->
+
 <section class="vibe-check">
 
   <div class="vibe-check-header">
     <h2>VIBE CHECK</h2>
   </div>
 
+  <div class="vibe-carousel">
 
-  <div class="vibe-check-grid">
+    <button
+      class="vibe-arrow vibe-prev"
+      type="button"
+      aria-label="Previous stories">
+      ‹
+    </button>
 
+    <div class="vibe-carousel-window">
 
-    <!-- ARTICLE 1 -->
+      <div class="vibe-track">
 
-    <article class="vibe-article">
+        <!-- STORY 1 -->
+        <article class="vibe-article">
 
-      <h3>
-        <span class="vibe-date">Sep 11</span>
-        First article title goes here
-      </h3>
+          <h3>
+            <span class="vibe-date">Sep 11</span>
+            First article title goes here
+          </h3>
 
-      <div class="vibe-line"></div>
+          <div class="vibe-line"></div>
 
-      <p class="vibe-keyword">Dance</p>
+          <p class="vibe-keyword">Dance</p>
 
-      <p class="vibe-description">
-        A short introduction to the story goes here. This gives people a little taste of what the piece is about.
-      </p>
+          <p class="vibe-description">
+            A short introduction to the story goes here. This gives people a little taste of what the piece is about.
+          </p>
 
-    </article>
-
-
-    <!-- ARTICLE 2 -->
-
-    <article class="vibe-article">
-
-      <h3>
-        <span class="vibe-date">Sep 04</span>
-        Second article title goes here
-      </h3>
-
-      <div class="vibe-line"></div>
-
-      <p class="vibe-keyword">Movement</p>
-
-      <p class="vibe-description">
-        A short introduction to the story goes here. This gives people a little taste of what the piece is about.
-      </p>
-
-    </article>
+        </article>
 
 
-    <!-- ARTICLE 3 -->
+        <!-- STORY 2 -->
+        <article class="vibe-article">
 
-    <article class="vibe-article">
+          <h3>
+            <span class="vibe-date">Sep 04</span>
+            Second article title goes here
+          </h3>
 
-      <h3>
-        <span class="vibe-date">Aug 28</span>
-        Third article title goes here
-      </h3>
+          <div class="vibe-line"></div>
 
-      <div class="vibe-line"></div>
+          <p class="vibe-keyword">Movement</p>
 
-      <p class="vibe-keyword">Training</p>
+          <p class="vibe-description">
+            A short introduction to the story goes here. This gives people a little taste of what the piece is about.
+          </p>
 
-      <p class="vibe-description">
-        A short introduction to the story goes here. This gives people a little taste of what the piece is about.
-      </p>
+        </article>
 
-    </article>
 
+        <!-- STORY 3 -->
+        <article class="vibe-article">
+
+          <h3>
+            <span class="vibe-date">Aug 28</span>
+            Third article title goes here
+          </h3>
+
+          <div class="vibe-line"></div>
+
+          <p class="vibe-keyword">Training</p>
+
+          <p class="vibe-description">
+            A short introduction to the story goes here. This gives people a little taste of what the piece is about.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+    <button
+      class="vibe-arrow vibe-next"
+      type="button"
+      aria-label="Next stories">
+      ›
+    </button>
 
   </div>
 
 </section>
 
   <script>
-  const vibeTrack = document.querySelector('.vibe-check-grid');
-  const vibePrev = document.querySelector('.vibe-arrow-left');
-  const vibeNext = document.querySelector('.vibe-arrow-right');
+  const vibeTrack = document.querySelector('.vibe-track');
+  const vibePrev = document.querySelector('.vibe-prev');
+  const vibeNext = document.querySelector('.vibe-next');
 
   if (vibeTrack && vibePrev && vibeNext) {
 
-    const getScrollAmount = () => {
-      const article = vibeTrack.querySelector('.vibe-article');
+    function getVibeScrollAmount() {
+      const story = vibeTrack.querySelector('.vibe-article');
 
-      if (!article) return 0;
+      if (!story) return 0;
 
-      const gap = parseFloat(
-        getComputedStyle(vibeTrack).gap
-      ) || 0;
+      const styles = window.getComputedStyle(vibeTrack);
+      const gap = parseFloat(styles.columnGap || styles.gap) || 0;
 
-      return article.offsetWidth + gap;
-    };
+      return story.getBoundingClientRect().width + gap;
+    }
 
-    vibeNext.addEventListener('click', () => {
+    vibeNext.addEventListener('click', function () {
       vibeTrack.scrollBy({
-        left: getScrollAmount(),
+        left: getVibeScrollAmount(),
         behavior: 'smooth'
       });
     });
 
-    vibePrev.addEventListener('click', () => {
+    vibePrev.addEventListener('click', function () {
       vibeTrack.scrollBy({
-        left: -getScrollAmount(),
+        left: -getVibeScrollAmount(),
         behavior: 'smooth'
       });
     });
