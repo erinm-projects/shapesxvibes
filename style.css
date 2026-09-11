@@ -1098,19 +1098,34 @@ HEADER
 
 
 /* =========================================================
-ARTICLE GRID
+ARTICLE CAROUSEL
 ========================================================= */
 
-.vibe-check-grid {
-  width: min(1200px, 100%);
-  margin: 0 auto;
+<div class="vibe-carousel">
 
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  <button
+    class="vibe-arrow vibe-arrow-left"
+    type="button"
+    aria-label="Previous articles">
+    ‹
+  </button>
 
-  column-gap: 75px;
-  row-gap: 85px;
-}
+  <div class="vibe-carousel-window">
+
+    <div class="vibe-check-grid">
+
+    </div>
+
+  </div>
+
+  <button
+    class="vibe-arrow vibe-arrow-right"
+    type="button"
+    aria-label="Next articles">
+    ›
+  </button>
+
+</div>
 
 
 /* =========================================================
