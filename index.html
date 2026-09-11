@@ -492,3 +492,39 @@ VIBE CHECK
   </div>
 
 </section>
+
+  <script>
+  const vibeTrack = document.querySelector('.vibe-check-grid');
+  const vibePrev = document.querySelector('.vibe-arrow-left');
+  const vibeNext = document.querySelector('.vibe-arrow-right');
+
+  if (vibeTrack && vibePrev && vibeNext) {
+
+    const getScrollAmount = () => {
+      const article = vibeTrack.querySelector('.vibe-article');
+
+      if (!article) return 0;
+
+      const gap = parseFloat(
+        getComputedStyle(vibeTrack).gap
+      ) || 0;
+
+      return article.offsetWidth + gap;
+    };
+
+    vibeNext.addEventListener('click', () => {
+      vibeTrack.scrollBy({
+        left: getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    vibePrev.addEventListener('click', () => {
+      vibeTrack.scrollBy({
+        left: -getScrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+  }
+</script>
