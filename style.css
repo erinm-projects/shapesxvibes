@@ -747,6 +747,22 @@ body {
   }
 }
 
+.vibe-carousel {
+  gap: 10px;
+}
+
+.vibe-check-grid {
+  gap: 25px;
+}
+
+.vibe-article {
+  flex: 0 0 100%;
+}
+
+.vibe-arrow {
+  font-size: 2.2rem;
+}
+
 
 /* =========================================================
    MOBILE
