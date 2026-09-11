@@ -1070,20 +1070,8 @@ VIBE CHECK
   padding: 75px 4.5vw 110px;
 
   /* CONTINUES THE GRID BACKGROUND */
-  background-color: #f5f2eb;
 
-  background-image:
-    linear-gradient(
-      rgba(30, 30, 30, 0.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(30, 30, 30, 0.08) 1px,
-      transparent 1px
-    );
-
-  background-size: 50px 50px;
+   background: transparent;
 
   color: #1e1e1e;
 }
@@ -1172,12 +1160,12 @@ DATE
 
   margin-right: 7px;
 
+  
   font-family: Georgia, "Times New Roman", serif;
-
-  font-size: 0.72em;
+  font-size: 0.78em;
   font-weight: 400;
 
-  color: var(--story-lime);
+  color: #d1ff71;
 }
 
 
@@ -1186,7 +1174,7 @@ LINE
 ========================================================= */
 
 .vibe-line {
-  width: 100%;
+  width: 33%;
   height: 1px;
 
   margin: 0 0 12px;
@@ -1247,7 +1235,7 @@ MOBILE
   .vibe-check {
     padding: 60px 22px 80px;
 
-    background-size: 38px 38px;
+    
   }
 
 
