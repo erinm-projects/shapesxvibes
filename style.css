@@ -1083,23 +1083,17 @@ VIBE CHECK
 ========================================================= */
 
 .vibe-check {
-  padding: 75px 4.5vw 110px;
-
-  /* CONTINUES THE GRID BACKGROUND */
-
-   background: transparent;
-
+  padding: 70px 5vw 100px;
+  background: transparent;
   color: #1e1e1e;
 }
 
 
-/* =========================================================
-HEADER
-========================================================= */
+/* HEADER */
 
 .vibe-check-header {
-  width: min(1200px, 100%);
-  margin: 0 auto 65px;
+  width: min(1320px, 100%);
+  margin: 0 auto 55px;
 }
 
 .vibe-check-header h2 {
@@ -1108,196 +1102,67 @@ HEADER
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.16em;
-
   text-transform: uppercase;
 }
 
 
-/* =========================================================
-ARTICLE CAROUSEL
-========================================================= */
+/* CAROUSEL WRAPPER */
 
-<div class="vibe-carousel">
-
-  <button
-    class="vibe-arrow vibe-arrow-left"
-    type="button"
-    aria-label="Previous articles">
-    ‹
-  </button>
-
-  <div class="vibe-carousel-window">
-
-    <div class="vibe-check-grid">
-
-    </div>
-
-  </div>
-
-  <button
-    class="vibe-arrow vibe-arrow-right"
-    type="button"
-    aria-label="Next articles">
-    ›
-  </button>
-
-</div>
-
-
-/* =========================================================
-ARTICLE
-========================================================= */
-
-.vibe-article {
-  position: relative;
-
-  padding: 18px 0;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-
-/* SMALL MOVEMENT ON HOVER */
-
-.vibe-article:hover {
-  transform: translateY(-7px);
-}
-
-
-/* =========================================================
-TITLE
-========================================================= */
-
-.vibe-article h3 {
-  margin: 0 0 18px;
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: clamp(1.65rem, 2.1vw, 2.65rem);
-  font-weight: 400;
-
-  line-height: 1.08;
-}
-
-
-/* =========================================================
-DATE
-========================================================= */
-
-.vibe-date {
-  display: inline;
-
-  margin-right: 7px;
-
-  
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.78em;
-  font-weight: 400;
-
-  color: #d1ff71;
-}
-
-
-/* =========================================================
-LINE
-========================================================= */
-
-.vibe-line {
-  width: 33%;
-  height: 1px;
-
-  margin: 0 0 12px;
-
-  background: rgba(30, 30, 30, 0.22);
-}
-
-
-/* =========================================================
-KEYWORD
-========================================================= */
-
-.vibe-keyword {
-  margin: 0 0 10px;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.78rem;
-  font-style: italic;
-  font-weight: 400;
-}
-
-
-/* =========================================================
-BODY TEXT
-========================================================= */
-
-.vibe-description {
-  margin: 0;
-
-  max-width: 31rem;
-
-  font-size: 0.72rem;
-  line-height: 1.55;
-
-  letter-spacing: 0.035em;
-
-  opacity: 0.68;
-}
-
-
-/* =========================================================
-MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-  .vibe-check {
-    padding: 60px 22px 80px;
-
-    
-  }
-
-
-  .vibe-check-header {
-    margin-bottom: 40px;
-  }
-
-
-  .vibe-carousel {
-  width: min(1350px, 100%);
+.vibe-carousel {
+  width: min(1500px, 100%);
   margin: 0 auto;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+
   align-items: center;
-  gap: 22px;
+  column-gap: 25px;
 }
+
+
+/* WINDOW */
 
 .vibe-carousel-window {
   width: 100%;
+  min-width: 0;
+
   overflow: hidden;
 }
 
-.vibe-check-grid {
-  display: flex;
-  gap: 75px;
+
+/* STORY TRACK */
+
+.vibe-track {
+  width: 100%;
+
+  display: grid;
+  grid-auto-flow: column;
+
+  grid-auto-columns: calc((100% - 100px) / 3);
+
+  gap: 50px;
 
   overflow-x: auto;
+  overflow-y: visible;
+
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 
   scrollbar-width: none;
 }
 
-.vibe-check-grid::-webkit-scrollbar {
+.vibe-track::-webkit-scrollbar {
   display: none;
 }
 
-.vibe-article {
-  flex: 0 0 calc((100% - 150px) / 3);
 
-  position: relative;
-  padding: 18px 0;
+/* STORY */
+
+.vibe-article {
+  width: 100%;
+  min-width: 0;
+
+  padding: 15px 0;
 
   scroll-snap-align: start;
 
@@ -1310,18 +1175,85 @@ MOBILE
   transform: translateY(-7px);
 }
 
+
+/* TITLE */
+
+.vibe-article h3 {
+  margin: 0 0 18px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.25vw, 2.8rem);
+  font-weight: 400;
+
+  line-height: 1.08;
 }
 
+
+/* DATE */
+
+.vibe-date {
+  display: inline;
+
+  margin-right: 8px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.75em;
+  font-weight: 400;
+
+  color: #069093;
+}
+
+
+/* SHORT LINE */
+
+.vibe-line {
+  width: 33%;
+  height: 1px;
+
+  margin: 0 0 12px;
+
+  background: rgba(30, 30, 30, 0.28);
+}
+
+
+/* KEYWORD */
+
+.vibe-keyword {
+  margin: 0 0 10px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+
+/* BODY TEXT */
+
+.vibe-description {
+  margin: 0;
+
+  max-width: 28rem;
+
+  font-size: 0.72rem;
+  line-height: 1.55;
+
+  letter-spacing: 0.025em;
+
+  opacity: 0.68;
+}
+
+
+/* ARROWS */
+
 .vibe-arrow {
-  flex: 0 0 auto;
-
   border: 0;
-  background: transparent;
+  padding: 0;
 
+  background: transparent;
   color: #1e1e1e;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 400;
   line-height: 1;
 
@@ -1333,12 +1265,35 @@ MOBILE
 }
 
 .vibe-arrow:hover {
-  transform: scale(1.12);
-  opacity: 0.55;
+  transform: scale(1.15);
+  opacity: 0.5;
 }
 
-.vibe-arrow:disabled {
-  opacity: 0.18;
-  cursor: default;
-  transform: none;
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .vibe-check {
+    padding: 55px 18px 75px;
+  }
+
+  .vibe-check-header {
+    margin-bottom: 35px;
+  }
+
+  .vibe-carousel {
+    grid-template-columns: 24px minmax(0, 1fr) 24px;
+    column-gap: 8px;
+  }
+
+  .vibe-track {
+    grid-auto-columns: 100%;
+    gap: 25px;
+  }
+
+  .vibe-arrow {
+    font-size: 2rem;
+  }
+
 }
